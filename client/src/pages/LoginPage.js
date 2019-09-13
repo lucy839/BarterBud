@@ -5,7 +5,9 @@ class LoginPage extends Component {
         return(
             // signup button and sign in button
             <div>
+                {/* If login button is clicked, have login page pop up */}
                 <button>Login</button>
+                {/* If sign up button is clicked, have sign up page pop up */}
                 <button>Sign Up</button>
             </div>
         );
