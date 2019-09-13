@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 class Signup extends Component {
 	constructor() {
@@ -24,25 +24,25 @@ class Signup extends Component {
 		event.preventDefault()
 
 		//request to server to add a new username/password
-		axios.post('/user/', {
-			username: this.state.username,
-			password: this.state.password
-		})
-			.then(response => {
-				console.log(response)
-				if (!response.data.errmsg) {
-					console.log('successful signup')
-					this.setState({ //redirect to login page
-						redirectTo: '/login'
-					})
-				} else {
-					console.log('username already taken')
-				}
-			}).catch(error => {
-				console.log('signup error: ')
-				console.log(error)
+		// axios.post('/user/', {
+		// 	username: this.state.username,
+		// 	password: this.state.password
+		// })
+		// 	.then(response => {
+		// 		console.log(response)
+		// 		if (!response.data.errmsg) {
+		// 			console.log('successful signup')
+		// 			this.setState({ //redirect to login page
+		// 				redirectTo: '/login'
+		// 			})
+		// 		} else {
+		// 			console.log('username already taken')
+		// 		}
+		// 	}).catch(error => {
+		// 		console.log('signup error: ')
+		// 		console.log(error)
 
-			})
+		// 	})
 	}
 
 
