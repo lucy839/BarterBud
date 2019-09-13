@@ -33,7 +33,7 @@ class App extends Component {
     let main;
     // if someone is logged in, go to main page,
     if (this.state.loggedIn)
-      main = <Route path="/main" exact component = {Main}></Route>
+      main = <Route path="/" exact component = {Main}></Route>
 
     // if no one is loggedin , display login page
     else
