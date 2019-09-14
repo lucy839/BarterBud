@@ -4,52 +4,38 @@ import axios from 'axios'
 
 class Signin extends Component {
     constructor() {
-        super()
-        this.state = {
-            username: '',
-            password: '',
-            redirectTo: null
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-  
-    }
+		super()
+		this.state = {
+			username: '',
+			password: '',
+			redirectTo: null
+		}
 
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
+		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
+	}
 
-    handleSubmit(event) {
-        event.preventDefault()
-        console.log('handleSubmit')
+	handleChange(event) {
+		this.setState({
+			[event.target.name]: event.target.value
+		})
+	}
 
-        axios
-            .post('/auth/login', {
-                username: this.state.username,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log('login response: ')
-                console.log(response)
-                if (response.status === 200) {
-                    // update App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        username: response.data.username
-                    })
-                    // update the state to redirect to home
-                    this.setState({
-                        redirectTo: '/'
-                    })
-                }
-            }).catch(error => {
-                console.log('login error: ')
-                console.log(error);
-                
-            })
-    }
+	handleSubmit(event) {
+		event.preventDefault()
+		console.log('handleSubmit')
+		this.props._login(this.state.username, this.state.password, this)
+		this.setState({
+			username: '',
+			password: '',
+		})
+	}
+
+	// state set only when this function is called, which is after _login succeeds
+	success(){
+		console.log("we did it");
+		this.setState({ redirectTo: '/' })
+	}
 
     render() {
         if (this.state.redirectTo) {
@@ -91,7 +77,7 @@ class Signin extends Component {
                         <div className="form-group ">
                             <div className="col-7"></div>
                             <button
-                                className="btn btn-primary col-1 col-mr-auto"
+                                className="btn login"
                                
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>

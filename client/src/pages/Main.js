@@ -1,10 +1,9 @@
 import React from 'react';
+import Nav from "../components/Nav/index"
 
 function Main (){
     return(
-        <div>
-            test1
-        </div>
+        <Nav></Nav>
     );
 }
 export default Main;

@@ -1,4 +1,4 @@
-.modal-header{
+/* .modal-header{
     border:none
 }
 @media (min-width: 576px) {
@@ -48,7 +48,7 @@
 }
 
 /* ipad pro */
-@media only screen and (max-width: 1024px) {
+/* @media only screen and (max-width: 1024px) {
   .modal-dialog{
     margin-top:6%;
   }
@@ -61,12 +61,29 @@
 }
 
 /* iphone 6/7/8 plus */
-@media only screen and (max-width: 414px) {
+/* @media only screen and (max-width: 414px) {
   .modal-dialog{
     margin-top:8%;
     margin-left:10%;
   }
+} */
+
+
+
+.modal {
+  background: white;
+  width:20%;
+  margin-left: 40%;
+  margin-top:20%;
+  /* text-align:center; */
+  /* position: absolute; */
+  /* z-index: 10040; */
 }
-
-
-
+.modal-dialog {
+  /* -webkit-animation-name: example; */
+  /* width: 80%;
+  height: 92%;
+  padding: 0; */
+  padding:5%;
+  height:auto;
+}

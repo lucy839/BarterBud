@@ -1,0 +1,22 @@
+.intro {
+    margin-top:13%;
+    font-size: 40px;
+}
+.btn {
+    height:50px;
+    width:150px;
+    margin-right:6%;
+    margin-left:6%;
+    margin-top:5%;
+    font-size:15px;
+    border:solid 3px rgb(194, 184, 184);
+}
+button:hover {
+    background: rgb(194, 184, 184);
+}
+.close {
+    float:right;
+}
+.login{
+    margin-left:20%;
+}
