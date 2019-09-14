@@ -13,8 +13,8 @@ class App extends Component {
       loggedIn: false,
       user: null
     };
-  
-  this._login = this._login.bind(this);
+		this._logout = this._logout.bind(this);
+    this._login = this._login.bind(this);
   }
   // as soon as app load, app needs to check if anyone is logged in or not.
   componentDidMount() {
@@ -34,35 +34,48 @@ class App extends Component {
   }
   _login(username, password, obj) {
     // console.log(username, password);
-		axios
-			.post('/auth/login', {
-				username,
-				password
-			})
-			.then(response => {
-				console.log(response);
-				if (response.status === 200) {
-					// update the state
-					this.setState({
-						loggedIn: true,
-						user: response.data.user,
-					})
-				}
+    axios
+      .post('/auth/login', {
+        username,
+        password
+      })
+      .then(response => {
+        console.log(response);
+        if (response.status === 200) {
+          // update the state
+          this.setState({
+            loggedIn: true,
+            user: response.data.user,
+          })
+        }
 
-				obj.success();
+        obj.success();
 
-			}).catch(err => {
-				if (err) {
-					alert("wrong username or password");
-				}
-			})
+      }).catch(err => {
+        if (err) {
+          alert("wrong username or password");
+        }
+      })
   }
-  
+  _logout(event) {
+    event.preventDefault()
+    console.log('logging out')
+    axios.post('/auth/logout').then(response => {
+      console.log(response.data)
+      if (response.status === 200) {
+        this.setState({
+          loggedIn: false,
+          user: null
+        })
+      }
+    })
+  }
+
   render() {
     let main;
     if (this.state.loggedIn)
-      main = <Route path="/" exact component = {Main}></Route>
-    else 
+      main = <Route path="/" exact render={(props) => <Main {...props} _logout={this._logout} />}></Route>
+    else
       main = <Route path="/" exact render={(props) => <LoginPage {...props} _login={this._login} loggedIn={this.state.loggedIn} />}></Route>
 
     // if someone is loggedin, display navbar
@@ -78,9 +91,8 @@ class App extends Component {
         <Router>
           <Switch>
             {/* <Route path="/main" exact component = {Main}></Route> */}
-            <Route path="/about" exact component = {About}></Route>
-            <Route path="/upload" exact component = {Upload}></Route>
-
+            <Route path="/about" exact component={About}></Route>
+            <Route path="/upload" exact component={Upload}></Route>
             {main}
           </Switch>
         </Router>
