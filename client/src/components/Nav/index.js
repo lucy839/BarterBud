@@ -1,9 +1,39 @@
 import React, {Component} from 'react';
+import Container from "../Container";
+import About from "../../pages/About";
+import Upload from "../../pages/Upload";
+import Market from "../../pages/Market";
+// import { Redirect } from 'react-router-dom'
 import "./style.css";
 
 class Nav extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            button:""
+        }
+        this.toggle = this.toggle.bind(this);
+    }
+    toggle = event => {
+        const {name, value} = event.target;
+        this.setState({[name]: value });
+    }
     render() {
+        let page = "";
+        switch (this.state.button){
+            case "about":
+                page = <About/>
+                break
+            case "market":
+                page = <Market/>
+                break
+            case "upload":
+                page = <Upload/>
+                break
+            default:
+        }
         return (
+            <div>
             <nav class="navbar navbar-expand-lg fixed-top">
 
                 <div class="navbar-brand">Barter Bud <i class="fas fa-sync-alt"></i></div>
@@ -16,14 +46,21 @@ class Nav extends Component {
                     <ul class="navbar-nav ml-auto">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
+                                <button  name="button"
+            type="button"
+            value="about"
+            onClick={this.toggle}>About</button>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/market">Market</a>
-                            </li>
+                            <button  name="button"
+            type="button"
+            value="market"
+            onClick={this.toggle}>Market</button>                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/upload">Profile</a>
-                            </li>
+                            <button  name="button"
+            type="button"
+            value="upload"
+            onClick={this.toggle}>Upload</button>                            </li>
                             <li class="nav-item">
                                 <button onClick = {this.props._logout}>Logout</button>
                                 {/* <a class="nav-link" method="GET" href="/logout"></a> */}
@@ -32,6 +69,10 @@ class Nav extends Component {
                     </ul>
                 </div>
             </nav>
+            <Container>
+                {page}
+            </Container>
+            </div>
         );
     }
 

@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Main from "./pages/Main";
 import LoginPage from "./pages/LoginPage";
 import About from "./pages/About";
 import Upload from "./pages/Upload";
+import Market from "./pages/Market";
+
+import Nav from "./components/Nav";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loggedIn: false,
-      user: null
+      user: null,
+      redirectTo: null
     };
 		this._logout = this._logout.bind(this);
     this._login = this._login.bind(this);
@@ -65,19 +70,28 @@ class App extends Component {
       if (response.status === 200) {
         this.setState({
           loggedIn: false,
-          user: null
+          user: null,
+          redirectTo: "/"
         })
       }
+      // obj.success();
     })
   }
 
   render() {
+    if (this.state.redirectTo) {
+			redirect = <Redirect to={{ pathname: this.state.redirectTo }} />
+    }
     let main;
-    if (this.state.loggedIn)
-      main = <Route path="/" exact render={(props) => <Main {...props} _logout={this._logout} />}></Route>
-    else
+    let nav;
+    let redirect;
+ 
+    if (this.state.loggedIn){
+      nav =  <Nav _logout = {this._logout}></Nav>
+      main = <Route path="/"exact component = {Market}  ></Route>
+    } else {
       main = <Route path="/" exact render={(props) => <LoginPage {...props} _login={this._login} loggedIn={this.state.loggedIn} />}></Route>
-
+    }
     // if someone is loggedin, display navbar
     // if someone is logged in, go to main page,
     // if (this.state.loggedIn)
@@ -85,20 +99,25 @@ class App extends Component {
 
     // // if no one is loggedin , display login page
     // else
-
+    
     return (
       <div>
+    
         <Router>
+        {redirect}
+        {nav}
           <Switch>
             {/* <Route path="/main" exact component = {Main}></Route> */}
             <Route path="/about" exact component={About}></Route>
             <Route path="/upload" exact component={Upload}></Route>
+            <Route path="/market" exact component={Market}></Route>       
             {main}
           </Switch>
         </Router>
       </div>
     );
-  }
-}
+  }}
+
+
 
 export default App;

@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../components/Nav";
+// import Nav from "../components/Nav";
 import Container from "../components/Container";
 
 function About() {
@@ -7,8 +7,8 @@ function About() {
 
         <div>
             {/* redundacy that needs to be fixed */}
-            <Nav></Nav>
-            <Container>
+            {/* <Nav></Nav> */}
+            {/* <Container> */}
                 <h1 className="text-center">
                     What is <strong>Barter Bud</strong>?
                 </h1>
@@ -28,7 +28,7 @@ function About() {
                     <br></br>
                     Barter Bud helps all the community with decluttering homes, offices, yards to make a better aesthetic backgrounds to have a peaceful mind. It is so important for our environment to Reduce landfills, with Reuse and Recycle Items as much as possible. Recycling saves energy, it also reduces greenhouse gas emissions. The community feels stronger connections since they interact and helping each other.
                   </p>
-            </Container>
+            {/* </Container> */}
         </div>
     );
 }

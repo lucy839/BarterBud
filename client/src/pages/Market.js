@@ -1,8 +1,11 @@
 import React from 'react';
+// import Container from "../components/Container";
 
 function Market (){
     return(
-        <div style = {{color:"white"}}>test 2</div>
+        // <Container>
+           <p>list of things</p> 
+        // </Container>
     );
 }
 export default Market;
