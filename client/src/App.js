@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
-import Main from "./pages/Main";
 import LoginPage from "./pages/LoginPage";
 import About from "./pages/About";
 import Upload from "./pages/Upload";
