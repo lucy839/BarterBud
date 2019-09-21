@@ -23,6 +23,7 @@ class Market extends Component {
             )
             .catch(err => console.log(err));
     }
+    // when button is clicked, display my items 
     render() {
         console.log(this.state.products);
         return(
@@ -34,7 +35,13 @@ class Market extends Component {
                 <h1>condition</h1>
                 <p>{product.condition}</p>
                 <h1>description</h1>
-                <p>{product.description}</p></div>
+                <p>{product.description}</p>
+                // button to trade
+                <button 
+                    className = "btn trade"
+                    onClick = {this.trade}
+                    type = "submit">trade</button>
+                    </div>
             );
         })
         )
