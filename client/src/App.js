@@ -57,6 +57,7 @@ class App extends Component {
 
       }).catch(err => {
         if (err) {
+          console.log(err)
           alert("wrong username or password");
         }
       })

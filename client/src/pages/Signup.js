@@ -26,7 +26,9 @@ class Signup extends Component {
 		console.log('sign-up handleSubmit, username: ')
 		console.log(this.state.username)
 		event.preventDefault()
+		var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
+		if (this.state.email.match(reg) ){
 		//request to server to add a new username/password
 		axios.post('/auth/signup', {
 			username: this.state.username,
@@ -47,7 +49,9 @@ class Signup extends Component {
 						redirectTo: '/'
 					})
 				}
-			})
+			})} else {
+				alert("please enter valid email");
+			}
 
 	}
 	success() {
@@ -93,17 +97,17 @@ class Signup extends Component {
 							</div>
 						</div>
 						<div className="form-group">
-							<div className="col-1 col-ml-auto">
-								<label for="contact">Email address</label>
+							<div >
+								<label className="form-label" for="contact">Email address:</label>
 							</div>
-							<div className="col-3 col-mr-auto">
+							<div >
 								<input type="email" 
 									className="form-control" 
 									id="contact" 
 									placeholder="name@example.com" 
 									type = "email"
 									name = "email"
-									value = {this.state.password}
+									value = {this.state.email}
 									onChange = {this.handleChange}
 								/>
 							</div>
@@ -111,7 +115,7 @@ class Signup extends Component {
 
 						<div className="form-group ">
 							<button
-								className="btn btn-primary col-1 col-mr-auto"
+								className="btn btn-primary "
 								onClick={this.handleSubmit}
 								type="submit"
 							>Sign up</button>
