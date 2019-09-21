@@ -9,7 +9,9 @@ class Signup extends Component {
 		this.state = {
 			username: '',
 			password: '',
+			// needs to work on this
 			confirmPassword: '',
+			email:'',
 			redirectTo: null
 		}
 		this.handleSubmit = this.handleSubmit.bind(this)
@@ -28,26 +30,27 @@ class Signup extends Component {
 		//request to server to add a new username/password
 		axios.post('/auth/signup', {
 			username: this.state.username,
-			password: this.state.password
+			password: this.state.password,
+			email: this.state.email
 		})
-		.then(response => {
-			console.log(response)
-			if (!response.data.error) {
-				console.log('youre good')
-				this.props._login(this.state.username, this.state.password, this);
-				
-				
-			} else {
-				alert("Already signed up. please login")
-				console.log('duplicate')
-				this.setState({
-					redirectTo: '/'
-				})
-			}
-		})
-		
+			.then(response => {
+				console.log(response)
+				if (!response.data.error) {
+					console.log('youre good')
+					this.props._login(this.state.username, this.state.password, this);
+
+
+				} else {
+					alert("Already signed up. please login")
+					console.log('duplicate')
+					this.setState({
+						redirectTo: '/'
+					})
+				}
+			})
+
 	}
-	success(){
+	success() {
 		console.log("we did it");
 		this.setState({ redirectTo: '/' })
 	}
@@ -89,8 +92,24 @@ class Signup extends Component {
 								/>
 							</div>
 						</div>
+						<div className="form-group">
+							<div className="col-1 col-ml-auto">
+								<label for="contact">Email address</label>
+							</div>
+							<div className="col-3 col-mr-auto">
+								<input type="email" 
+									className="form-control" 
+									id="contact" 
+									placeholder="name@example.com" 
+									type = "email"
+									name = "email"
+									value = {this.state.password}
+									onChange = {this.handleChange}
+								/>
+							</div>
+						</div>
+
 						<div className="form-group ">
-							<div className="col-7"></div>
 							<button
 								className="btn btn-primary col-1 col-mr-auto"
 								onClick={this.handleSubmit}
