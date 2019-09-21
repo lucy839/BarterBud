@@ -1,20 +1,30 @@
 import React, { Component } from 'react';
 
 class Upload extends Component {
-    // constructor() {
-    state = {
+    constructor(props) {
+        super(props)
+    this.state = {
         productname: '',
         condition: '',
         description:''
-    }    
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+
+       }
     handleChange(event){
+        console.log(event.target.value);
         this.setState({
-            [event.target.name]:evnet.target.value
+            [event.target.name]:event.target.value
         })
     } 
-    // }
-    render() {
+    handleSubmit(event) {
+        event.preventDefault();
         console.log(this.state.productname, this.state.condition, this.state.description);
+
+    }
+  
+    render() {
         return (
             <div>
                 <h2 id="upload">Upload</h2>
@@ -61,7 +71,10 @@ class Upload extends Component {
                             Please enter description of product.
                         </div>
                     </div>
-                    <button id="submit" type="submit">submit</button>
+                    <button 
+                        id="submit" 
+                        type="submit"
+                        onClick = {this.handleSubmit}>submit</button>
                 </form>
             </div>
     
