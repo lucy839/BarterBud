@@ -24,6 +24,13 @@ module.exports = {
         .create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+    },
+    // diplay all products
+    display: function(req, res){
+      Upload
+        .find({})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
     }
     // ,
     // update: function(req, res) {

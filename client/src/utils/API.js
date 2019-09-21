@@ -14,10 +14,16 @@ export default {
 //     return axios.delete("/api/users/" + id);
 //   },
   // Saves user to the database
+
+  // upload products
   upload: function(userData) {
     console.log(userData);
     return axios.post("/api/upload", userData);
   },
+  //display all products
+  display: function(){
+    return axios.get("/api/upload");
+  }
   // get scores
 //   updateScore: function(username) {
 //     console.log("in APU")

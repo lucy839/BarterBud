@@ -31,6 +31,8 @@ class Nav extends Component {
                 page = <Upload user = {this.props.user}/>
                 break
             default:
+                page = <Market/>
+
         }
         return (
             <div>

@@ -89,8 +89,8 @@ class App extends Component {
     let redirect;
  
     if (this.state.loggedIn){
-      nav =  <Nav _logout = {this._logout} user = {this.state.user}></Nav>
-      main = <Route path="/"exact component = {Market}  ></Route>
+      // nav =  <Nav _logout = {this._logout} user = {this.state.user}></Nav>
+      main = <Route path="/"exact render ={(props)=> <Nav _logout = {this._logout} user = {this.state.user}></Nav> }   ></Route>
     } else {
       main = <Route path="/" exact render={(props) => <LoginPage {...props} _login={this._login} loggedIn={this.state.loggedIn} />}></Route>
     }
@@ -107,7 +107,7 @@ class App extends Component {
     
         <Router>
         {redirect}
-        {nav}
+        {/* {nav} */}
           <Switch>
             {/* <Route path="/main" exact component = {Main}></Route> */}
             <Route path="/about" exact component={About}></Route>

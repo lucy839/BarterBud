@@ -11,6 +11,7 @@ const uploadController = require("../controllers/uploadController")
 // .delete(userController.remove)
 
 router.route("/upload")
+.get(uploadController.display)
 .post(uploadController.create)
 
 module.exports = router;
