@@ -14,6 +14,7 @@ class Upload extends Component {
     } 
     // }
     render() {
+        console.log(this.state.productname, this.state.condition, this.state.description);
         return (
             <div>
                 <h2 id="upload">Upload</h2>
