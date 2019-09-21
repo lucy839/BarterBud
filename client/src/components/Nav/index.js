@@ -28,7 +28,7 @@ class Nav extends Component {
                 page = <Market/>
                 break
             case "upload":
-                page = <Upload/>
+                page = <Upload user = {this.props.user}/>
                 break
             default:
         }
@@ -60,7 +60,8 @@ class Nav extends Component {
                             <button  name="button"
             type="button"
             value="upload"
-            onClick={this.toggle}>Upload</button>                            </li>
+            onClick={this.toggle}>Upload</button>          
+                              </li>
                             <li class="nav-item">
                                 <button onClick = {this.props._logout}>Logout</button>
                                 {/* <a class="nav-link" method="GET" href="/logout"></a> */}

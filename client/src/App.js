@@ -26,8 +26,9 @@ class App extends Component {
       if (response.data.user) {
         this.setState({
           loggedIn: true,
-          user: response
+          user: response.data.user._id
         })
+        console.log(this.state.user);
       } else {
         this.setState({
           loggedIn: false,
@@ -35,6 +36,7 @@ class App extends Component {
         })
       }
     })
+
   }
   _login(username, password, obj) {
     // console.log(username, password);
@@ -57,7 +59,7 @@ class App extends Component {
 
       }).catch(err => {
         if (err) {
-          console.log(err)
+          // console.log(err)
           alert("wrong username or password");
         }
       })
@@ -87,7 +89,7 @@ class App extends Component {
     let redirect;
  
     if (this.state.loggedIn){
-      nav =  <Nav _logout = {this._logout}></Nav>
+      nav =  <Nav _logout = {this._logout} user = {this.state.user}></Nav>
       main = <Route path="/"exact component = {Market}  ></Route>
     } else {
       main = <Route path="/" exact render={(props) => <LoginPage {...props} _login={this._login} loggedIn={this.state.loggedIn} />}></Route>

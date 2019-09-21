@@ -15,6 +15,7 @@ export default {
 //   },
   // Saves user to the database
   upload: function(userData) {
+    console.log(userData);
     return axios.post("/api/upload", userData);
   },
   // get scores
