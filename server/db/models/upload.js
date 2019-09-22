@@ -13,7 +13,8 @@ const uploadSchema = new Schema({
         type: String,
         trim: true,
         lowercase: true
-    }
+    },
+    status: String
 })
 
 
