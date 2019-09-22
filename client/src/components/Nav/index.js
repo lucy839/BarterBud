@@ -25,14 +25,13 @@ class Nav extends Component {
                 page = <About/>
                 break
             case "market":
-                page = <Market/>
+                page = <Market user = {this.props.user}/>
                 break
             case "upload":
                 page = <Upload user = {this.props.user}/>
                 break
             default:
-                page = <Market/>
-
+                page = <Market user = {this.props.user}/>
         }
         return (
             <div>

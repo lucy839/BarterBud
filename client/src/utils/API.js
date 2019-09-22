@@ -23,6 +23,9 @@ export default {
   //display all products
   display: function(){
     return axios.get("/api/upload");
+  },
+  tradeRequest: function(user){
+    return axios.get("/api/upload/"+user);
   }
   // get scores
 //   updateScore: function(username) {
