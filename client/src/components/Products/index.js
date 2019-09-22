@@ -21,8 +21,9 @@ class Products extends Component {
     }
     // return (
     render() {
-     
         let list = this.props.products.map(product => {
+            console.log(product.user, this.props.user)
+
             // console.log(myProduct.productname)
                 if (!(product.user == this.props.user)){
 

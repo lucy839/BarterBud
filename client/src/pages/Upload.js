@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API";
-
+import Container from "../components/Container/index"
 class Upload extends Component {
     constructor(props) {
         super(props)
@@ -30,7 +30,8 @@ class Upload extends Component {
     render() {
         console.log(this.props.user);
         return (
-            <div>
+            <Container>
+ <div>
                 <h2 id="upload">Upload</h2>
                 <form class="create-form" >
                     <div class="form-group">
@@ -50,7 +51,7 @@ class Upload extends Component {
                         <select class="form-control"
                             id="condition"
                             name="condition"
-                            value={this.value}
+                            // value={this.value}
                             onChange={this.handleChange}
                             required>
                             <option value ="new">New</option>
@@ -82,6 +83,8 @@ class Upload extends Component {
                 </form>
             </div>
 
+            </Container>
+           
         );
     }
 }

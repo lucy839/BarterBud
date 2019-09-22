@@ -60,10 +60,11 @@ class Nav extends Component {
             <a href = "/market">market</a>
                           </li>
                             <li class="nav-item">
-                            <button  name="button"
+                                <a href = "/upload">upload</a>
+                            {/* <button  name="button"
             type="button"
             value="upload"
-            onClick={this.toggle}>Upload</button>          
+            onClick={this.toggle}>Upload</button>           */}
                               </li>
                             <li class="nav-item">
                                 <button onClick = {this.props._logout}>Logout</button>

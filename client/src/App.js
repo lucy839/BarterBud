@@ -112,7 +112,7 @@ class App extends Component {
           <Switch>
             {/* <Route path="/main" exact component = {Main}></Route> */}
             <Route path="/about" exact component={About}></Route>
-            <Route path="/upload" exact component={Upload}></Route>
+    <Route path="/upload" exact render = {(props) => <Upload {...props} user = {this.state.user}/>}></Route>
             <Route path="/market" exact render ={(props)=> <Market {...props}  user = {this.state.user}/>}></Route>       
             {main}
           </Switch>
