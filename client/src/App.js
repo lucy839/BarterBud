@@ -73,7 +73,8 @@ class App extends Component {
         this.setState({
           loggedIn: false,
           user: null,
-          redirectTo: "/"
+          redirectTo: "/",
+          tradeRequest: false
         })
       }
       // obj.success();
@@ -89,8 +90,8 @@ class App extends Component {
     let redirect;
  
     if (this.state.loggedIn){
-      // nav =  <Nav _logout = {this._logout} user = {this.state.user}></Nav>
-      main = <Route path="/"exact render ={(props)=> <Nav _logout = {this._logout} user = {this.state.user}></Nav> }   ></Route>
+      nav =  <Nav _logout = {this._logout} user = {this.state.user}></Nav>
+      main = <Route path="/"exact render ={(props)=> <Market {...props}  user = {this.state.user} />}></Route>
     } else {
       main = <Route path="/" exact render={(props) => <LoginPage {...props} _login={this._login} loggedIn={this.state.loggedIn} />}></Route>
     }
@@ -107,12 +108,12 @@ class App extends Component {
     
         <Router>
         {redirect}
-        {/* {nav} */}
+        {nav}
           <Switch>
             {/* <Route path="/main" exact component = {Main}></Route> */}
             <Route path="/about" exact component={About}></Route>
             <Route path="/upload" exact component={Upload}></Route>
-            <Route path="/market" exact component={Market}></Route>       
+            <Route path="/market" exact render ={(props)=> <Market {...props}  user = {this.state.user}/>}></Route>       
             {main}
           </Switch>
         </Router>

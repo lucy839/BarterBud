@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import API from '../utils/API';
 import MyProducts from "../components/MyUploads/index"
 // import Container from "../components/Container";
-
+import Container from "../components/Container/index";
+import Products from "../components/Products/index"
 class Market extends Component {
     constructor(props){
         super(props)
     this.state ={
         products: [],
         tradeRequest: false,
-        myProducts: []
-    };}
+        myProducts: [],
+        request: ""
+    };
+this.closeRequest=this.closeRequest.bind(this)
+}
  
     // when the page is loaded, display all the items in the data
     componentDidMount() {
@@ -31,8 +35,14 @@ class Market extends Component {
             .catch(err => console.log(err));
     }
     // when button is clicked, display my items 
-    tradeRequest = () => {
-        this.setState({tradeRequest:true});
+    tradeRequest = (name, value) => {
+        // console.log(event.target.value)
+        // event.preventDefault()
+        this.setState({
+            [name]: [value],
+            tradeRequest:true
+		})
+       
         API.tradeRequest(this.props.user)
             .then(res =>
 // console.log(res.data)
@@ -41,12 +51,21 @@ class Market extends Component {
             )
             .catch(err => console.log(err));
     }
+    closeRequest(){
+    this.setState({
+        tradeRequest:false
+    })
+    }
     render() {
+        console.log(this.state.request)
         console.log(this.state.products)
         console.log(this.state.myProducts);
         if(this.state.tradeRequest){
-            return(   
-                <MyProducts myProducts = {this.state.myProducts}/>
+            return( 
+                <Container>
+                                    <MyProducts myProducts = {this.state.myProducts} requst = {this.state.request} closeRequest = {this.closeRequest}/>
+
+                </Container>    
                 // this.state.myProducts.map(product => {
 
                 // return (<div>          
@@ -69,24 +88,32 @@ class Market extends Component {
         }else {
        
         return(
-        this.state.products.map(product => {
-            console.log(product.user);
-            if (!(product.user == this.props.user)){
-            return (<div>             <h1> product name: </h1>
+            
+                    // put this as component 
+                    <Container>
+                 <Products products=  {this.state.products} tradeRequest = {this.tradeRequest} user = {this.props.user}/>  
+                 </Container>
+        // this.state.products.map(product => {
+        //     console.log(product.user);
+            
+        //     if (!(product.user == this.props.user)){
+        //     return (<div>             <h1> product name: </h1>
         
-                <p>{product.productname}</p>
-                <h1>condition</h1>
-                <p>{product.condition}</p>
-                <h1>description</h1>
-                <p>{product.description}</p>
-                <button 
-                    className = "btn request"
-                    onClick = {this.tradeRequest}
-                    type = "submit">request</button>
-                    </div>
-            );
-            }
-        })
+        //         <p>{product.productname}</p>
+        //         <h1>condition</h1>
+        //         <p>{product.condition}</p>
+        //         <h1>description</h1>
+        //         <p>{product.description}</p>
+        //         <button 
+        //             className = "btn request"
+        //             name = "request"
+        //             value = {product._id}
+        //             onClick = {this.tradeRequest}
+        //             type = "submit">request</button>
+        //             </div>
+        //     );
+        //     }
+        // })
         )
     }
     }

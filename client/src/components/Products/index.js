@@ -1,27 +1,31 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom'
 
-class MyUploads extends Component {
+class Products extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            redirectTo:null
+            request : ""
         }
-        this.back = this.back.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
     }
     // console.log(props.myProducts)
-    back(){
-        this.props.closeRequest();
-        this.setState({redirectTo: '/market' })
+    handleSubmit(event){
+		event.preventDefault()
+		this.setState({
+			[event.target.name]: event.target.value
+        })
+        {this.props.tradeRequest(this.state.name,this.state.value)}
 
     }
     // return (
     render() {
      
-        let back = <button className="btn trade" type="submit" onClick = {this.back}>back</button>;
-        let list = this.props.myProducts.map(product => {
+        let list = this.props.products.map(product => {
             // console.log(myProduct.productname)
+                if (!(product.user == this.props.user)){
+
             return (<div>
 
                 <h1> product name: </h1>
@@ -32,25 +36,25 @@ class MyUploads extends Component {
                 <p>{product.description}</p>
                 <button
                     className="btn trade"
-                    // onClick = {this.tradeRequest}
-                    type="submit">trade</button>
+                    name = "request"
+                    value = {product._id}
+                    onClick = {this.handleSubmit}
+                    type="submit">request</button>
             </div>
-            );
+            );}
         });
-        if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
-        } else {
+     
         // if there is no books saved, display this
-        return (this.props.myProducts.length === 0) ? (
+        return (this.props.products.length === 0) ? (
             <div>
-                {back}
+               
                 <h5>No Products to Trade</h5>
 
             </div>
         ) : (
                 // else display books saved
                 <div>
-                    {back}
+                
                     {list}
                     {/* this.props.myProducts.map(product => {
                 return (<div>
@@ -70,6 +74,6 @@ class MyUploads extends Component {
             })*/}
                 </div>)
 
-    }}
+    }
 }
-export default MyUploads
+export default Products

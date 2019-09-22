@@ -31,7 +31,7 @@ class Nav extends Component {
                 page = <Upload user = {this.props.user}/>
                 break
             default:
-                page = <Market user = {this.props.user}/>
+                // page = <Market user = {this.props.user}/>
         }
         return (
             <div>
@@ -53,10 +53,12 @@ class Nav extends Component {
             onClick={this.toggle}>About</button>
                             </li>
                             <li class="nav-item">
-                            <button  name="button"
+                            {/* <button  name="button"
             type="button"
             value="market"
-            onClick={this.toggle}>Market</button>                            </li>
+            onClick={this.toggle}>Market</button>               */}
+            <a href = "/market">market</a>
+                          </li>
                             <li class="nav-item">
                             <button  name="button"
             type="button"
@@ -71,9 +73,9 @@ class Nav extends Component {
                     </ul>
                 </div>
             </nav>
-            <Container>
-                {page}
-            </Container>
+            {/* <Container> */}
+                {/* {page} */}
+            {/* </Container> */}
             </div>
         );
     }
