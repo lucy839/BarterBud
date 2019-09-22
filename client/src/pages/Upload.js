@@ -5,7 +5,7 @@ class Upload extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: this.props.user,
+            user: "",
             productname: '',
             condition: '',
             description: '',
@@ -15,20 +15,35 @@ class Upload extends Component {
         this.handleChange = this.handleChange.bind(this)
 
     }
+    componentDidMount(){
+        let userId = this.props.user
+     
+        this.setState({
+            user: userId
+        })
+           // console.log(this.state.user)
+    }
     handleChange(event) {
         console.log(event.target.value);
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            user: this.props.user
         })
     }
     handleSubmit(event) {
         event.preventDefault();
+    //     let userId = this.props.user
+    //  console.log(typeof(this.props.user))
+    //     this.setState({
+    //         user: userId
+    //     })
+        console.log(this.state.user)
         // console.log(this.state.productname, this.state.condition, this.state.description);
         API.upload(this.state)    
     }
 
     render() {
-        console.log(this.props.user);
+        // console.log(this.state.user);
         return (
             <Container>
  <div>
@@ -51,9 +66,9 @@ class Upload extends Component {
                         <select class="form-control"
                             id="condition"
                             name="condition"
-                            // value={this.value}
                             onChange={this.handleChange}
                             required>
+                            <option value ="" disabled  selected>Select</option>
                             <option value ="new">New</option>
                             <option value ="great">Great</option>
                             <option value ="fair">Fair</option>
