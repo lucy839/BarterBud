@@ -17,6 +17,7 @@ class Upload extends Component {
 
     }
     componentDidMount(){
+        // check this one
         let userId = this.props.user
      
         this.setState({

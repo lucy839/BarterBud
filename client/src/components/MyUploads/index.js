@@ -35,7 +35,7 @@ class MyUploads extends Component {
     }
     // return (
     render() {
-        console.log(this.props.request)
+        console.log(this.props.user)
         
         let back = <button className="btn trade" type="submit" onClick = {this.back}>back</button>;
         let list = this.props.myProducts.map(product => {

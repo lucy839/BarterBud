@@ -26,6 +26,7 @@ this.tradeRequest=this.tradeRequest.bind(this)
 
     // save all data in name, condition, image, description
     loadItems = ()  => {
+        console.log(this.props.user)
         API.display()
             .then(res =>
 
