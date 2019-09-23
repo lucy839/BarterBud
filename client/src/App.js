@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import About from "./pages/About";
 import Upload from "./pages/Upload";
 import Market from "./pages/Market";
+import Profile from "./pages/Profile";
 
 import Nav from "./components/Nav";
 
@@ -113,7 +114,8 @@ class App extends Component {
             {/* <Route path="/main" exact component = {Main}></Route> */}
             <Route path="/about" exact component={About}></Route>
     <Route path="/upload" exact render = {(props) => <Upload {...props} user = {this.state.user}/>}></Route>
-            <Route path="/market" exact render ={(props)=> <Market {...props}  user = {this.state.user}/>}></Route>       
+            <Route path="/market" exact render ={(props)=> <Market {...props}  user = {this.state.user}/>}></Route>
+            <Route path = "/profile" exact render = {(props) => <Profile {...props} user = {this.state.user}/>}></Route>       
             {main}
           </Switch>
         </Router>

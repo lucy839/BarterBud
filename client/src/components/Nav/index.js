@@ -67,6 +67,9 @@ class Nav extends Component {
             value="upload"
             onClick={this.toggle}>Upload</button>           */}
                               </li>
+                              <li className = "nav-item">
+                                  <a href = "/profile">profile</a>
+                              </li>
                             <li class="nav-item">
                                 <a onClick = {this.props._logout}>Logout</a>
                                 {/* <a class="nav-link" method="GET" href="/logout"></a> */}
