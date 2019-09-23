@@ -40,7 +40,16 @@ class Upload extends Component {
     //     })
         console.log(this.state.user)
         // console.log(this.state.productname, this.state.condition, this.state.description);
-        API.upload(this.state)    
+        API.upload(this.state).then(res =>
+            // conssole.log(res)
+            // this.setState({ products: res.data})
+           
+          alert("Upload Complete!"),
+          this.setState({user:"",
+          productname: '',
+          description: ''})
+        )
+        .catch(err => console.log(err))   
     }
 
     render() {
@@ -85,7 +94,7 @@ class Upload extends Component {
                         <input type="text"
                             id="description"
                             name="description"
-                            value={this.state.value}
+                            value={this.state.description}
                             onChange={this.handleChange}
                             required />
                         <div class="invalid-feedback">

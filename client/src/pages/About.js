@@ -4,7 +4,7 @@ import Container from "../components/Container";
 
 function About() {
     return (
-
+<Container>
         <div>
             {/* redundacy that needs to be fixed */}
             {/* <Nav></Nav> */}
@@ -30,6 +30,7 @@ function About() {
                   </p>
             {/* </Container> */}
         </div>
+        </Container>
     );
 }
 export default About;

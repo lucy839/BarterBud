@@ -47,10 +47,11 @@ class Nav extends Component {
                     <ul class="navbar-nav ml-auto">
                         <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <button  name="button"
+                                {/* <button  name="button"
             type="button"
             value="about"
-            onClick={this.toggle}>About</button>
+            onClick={this.toggle}>About</button> */}
+            <a href ="/about">about</a>
                             </li>
                             <li class="nav-item">
                             {/* <button  name="button"
@@ -67,7 +68,7 @@ class Nav extends Component {
             onClick={this.toggle}>Upload</button>           */}
                               </li>
                             <li class="nav-item">
-                                <button onClick = {this.props._logout}>Logout</button>
+                                <a onClick = {this.props._logout}>Logout</a>
                                 {/* <a class="nav-link" method="GET" href="/logout"></a> */}
                             </li>
                         </ul>
