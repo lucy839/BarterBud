@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom'
+import API from '../../utils/API';
 
 class MyUploads extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            redirectTo:null
+            redirectTo:null,
+            trade:""
         }
         this.back = this.back.bind(this)
+        this.trade =this.trade.bind(this)
 
     }
     // console.log(props.myProducts)
@@ -16,11 +19,27 @@ class MyUploads extends Component {
         this.setState({redirectTo: '/market' })
 
     }
+    // when this button is clicked, update status of both the user's and the product's user status to process
+    trade(event){
+        console.log(this.props.request)
+        // ,event.target.value
+        let test = [this.props.request, event.target.value]
+        API.requestTrade(test).then(res =>
+            // conssole.log(res)
+            // this.setState({ products: res.data})
+           
+          alert("Request Sent!"),
+          this.back()
+        )
+        .catch(err => console.log(err))
+    }
     // return (
     render() {
-     
+        console.log(this.props.request)
+        
         let back = <button className="btn trade" type="submit" onClick = {this.back}>back</button>;
         let list = this.props.myProducts.map(product => {
+            console.log(product)
             // console.log(myProduct.productname)
             return (<div>
 
@@ -32,7 +51,9 @@ class MyUploads extends Component {
                 <p>{product.description}</p>
                 <button
                     className="btn trade"
-                    // onClick = {this.tradeRequest}
+                    onClick = {this.trade}
+                    // name = "trade"
+                    value = {product._id}
                     type="submit">trade</button>
             </div>
             );

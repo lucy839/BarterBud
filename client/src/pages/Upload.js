@@ -9,7 +9,8 @@ class Upload extends Component {
             productname: '',
             condition: '',
             description: '',
-            status: "available"
+            status: "available",
+            requestFrom: ""
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)

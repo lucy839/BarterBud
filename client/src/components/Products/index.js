@@ -4,26 +4,29 @@ import { Redirect } from 'react-router-dom'
 class Products extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            request : ""
-        }
+        // this.state = {
+        //     request : ""
+        // }
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
     // console.log(props.myProducts)
     handleSubmit(event){
-		event.preventDefault()
-		this.setState({
-			[event.target.name]: event.target.value
-        })
-        {this.props.tradeRequest(this.state.name,this.state.value)}
+        event.preventDefault()
+		// this.setState({
+		// 	[event.target.name]: event.target.value
+        // })
+        console.log(event.target.value)
+        this.props.tradeRequest(		[event.target.name], event.target.value)
 
     }
+
     // return (
     render() {
+        // console.log(this.state.request) 
         let list = this.props.products.map(product => {
             console.log(product.user, this.props.user)
-
+            console.log(product._id)
             // console.log(myProduct.productname)
                 if (!(product.user == this.props.user)){
 

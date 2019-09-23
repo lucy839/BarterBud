@@ -14,7 +14,8 @@ const uploadSchema = new Schema({
         trim: true,
         lowercase: true
     },
-    status: String
+    status: String,
+    requestFrom: String
 })
 
 

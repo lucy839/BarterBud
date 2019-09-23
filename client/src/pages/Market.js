@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from '../utils/API';
-import MyProducts from "../components/MyUploads/index"
+import MyUploads from "../components/MyUploads/index"
 // import Container from "../components/Container";
 import Container from "../components/Container/index";
 import Products from "../components/Products/index"
@@ -14,6 +14,7 @@ class Market extends Component {
         request: ""
     };
 this.closeRequest=this.closeRequest.bind(this)
+this.tradeRequest=this.tradeRequest.bind(this)
 }
  
     // when the page is loaded, display all the items in the data
@@ -36,6 +37,7 @@ this.closeRequest=this.closeRequest.bind(this)
     }
     // when button is clicked, display my items 
     tradeRequest = (name, value) => {
+        console.log(name)
         // console.log(event.target.value)
         // event.preventDefault()
         this.setState({
@@ -61,9 +63,10 @@ this.closeRequest=this.closeRequest.bind(this)
         console.log(this.state.products)
         console.log(this.state.myProducts);
         if(this.state.tradeRequest){
+            console.log(this.state.request)
             return( 
                 <Container>
-                                    <MyProducts myProducts = {this.state.myProducts} requst = {this.state.request} closeRequest = {this.closeRequest}/>
+                                    <MyUploads myProducts = {this.state.myProducts} request = {this.state.request} closeRequest = {this.closeRequest}/>
 
                 </Container>    
                 // this.state.myProducts.map(product => {

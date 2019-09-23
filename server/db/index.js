@@ -4,7 +4,8 @@ let MONGO_URL
 const MONGO_LOCAL_URL = 'mongodb://localhost/barterbud'
 
 if (process.env.MONGODB_URI) {
-	mongoose.set('useCreateIndex', true)
+	mongoose.set('useCreateIndex', true),
+	// mongoose.set('useFindAndModify', false),
 	mongoose.connect(process.env.MONGODB_URI,{useUnifiedTopology: true, useNewUrlParser: true })	
 	MONGO_URL = process.env.MONGODB_URI
 } else {

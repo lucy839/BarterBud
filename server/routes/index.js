@@ -13,5 +13,7 @@ router.route("/upload/:id")
 router.route("/upload")
 .get(uploadController.display)
 .post(uploadController.create)
+router.route("/trade")
+.post(uploadController.findByProduct)
 
 module.exports = router;
