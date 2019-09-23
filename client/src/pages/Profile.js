@@ -9,10 +9,10 @@ class Profile extends Component {
         super(props)
         this.state = {
             // products: [],
-            // tradeRequest: false,
+            tradeRequest: false,
             // user: "",
-            myProducts: []
-            // request: ""
+            myProducts: [],
+            requested: ""
         }
         // this.loadItems=this.loadItems.bind(this)
         // this.getMyList = this.getMyList.bind(this)
@@ -24,16 +24,32 @@ class Profile extends Component {
     componentDidMount() {
         // this.setState({tradeRequest:false})
         this.loadItems();
-    
-    }
 
+    }
+    tradeRequest = (name, value) => {
+        console.log(name)
+        // console.log(event.target.value)
+        // event.preventDefault()
+        this.setState({
+            [name]: [value],
+            tradeRequest: true
+        })
+
+        //         API.tradeRequest(this.props.user)
+        //             .then(res =>
+        // // console.log(res.data)
+        //                 this.setState({ myProducts: res.data})
+
+        //             )
+        //             .catch(err => console.log(err));
+    }
     // save all data in name, condition, image, description
-    loadItems = ()  => {
+    loadItems = () => {
         API.display()
             .then(res =>
                 // console.log(res),
-                this.setState({ myProducts: res.data}) 
-              
+                this.setState({ myProducts: res.data })
+
             )
             .catch(err => console.log(err));
     }
@@ -60,76 +76,83 @@ class Profile extends Component {
     //         tradeRequest:false
     //     })
     // }
-  
+    // closeRequest() {
+    //     this.setState({
+    //         tradeRequest: false
+    //     })
+    // }
     render() {
-
-        console.log(this.state.myProducts)
-        return(  <Container>
-            <ProfileList products=  {this.state.myProducts} user = {this.props.user}/>  
+        if (this.state.tradeRequest) {
+            return (<Container>testing</Container>)
+        } else {
+            console.log(this.state.myProducts)
+            return (<Container>
+                <ProfileList products={this.state.myProducts} tradeRequest={this.tradeRequest} user={this.props.user} />
             </Container>)
-      
+        }
+
         // let list ;
         // if(this.props.user){
         //     this.setState({user: this.props.user})
 
         // }
         // let user = this.props.user
-  
+
         // console.log(this.state.myProducts)
-            // list = this.state.myProducts.map(product => {
-            //     console.log(product)
-            //     // console.log(myProduct.productname)
-            //     return (<div>
-    
-            //         <h1> product name: </h1>
-            //         <p>{product.productname}</p>
-            //         <h1>condition</h1>
-            //         <p>{product.condition}</p>
-            //         <h1>description</h1>
-            //         <p>{product.description}</p>
-            //         {/* <button
-            //             className="btn trade"
-            //             onClick = {this.trade}
-            //             // name = "trade"
-            //             value = {product._id} */}
-            //             {/* type="submit">trade</button> */}
-            //     </div>
-            //     );
-            //     // return (
-    
-            //     //     // put this as component 
-            //     //     <Container>
-                        
-            //     //     </Container>
-            //     //     // this.state.products.map(product => {
-            //     //     //     console.log(product.user);
-        
-            //     //     //     if (!(product.user == this.props.user)){
-            //     //     //     return (<div>             <h1> product name: </h1>
-        
-            //     //     //         <p>{product.productname}</p>
-            //     //     //         <h1>condition</h1>
-            //     //     //         <p>{product.condition}</p>
-            //     //     //         <h1>description</h1>
-            //     //     //         <p>{product.description}</p>
-            //     //     //         <button 
-            //     //     //             className = "btn request"
-            //     //     //             name = "request"
-            //     //     //             value = {product._id}
-            //     //     //             onClick = {this.tradeRequest}
-            //     //     //             type = "submit">request</button>
-            //     //     //             </div>
-            //     //     //     );
-            //     //     //     }
-            //     //     // })
-            //     // )
-            // });
+        // list = this.state.myProducts.map(product => {
+        //     console.log(product)
+        //     // console.log(myProduct.productname)
+        //     return (<div>
+
+        //         <h1> product name: </h1>
+        //         <p>{product.productname}</p>
+        //         <h1>condition</h1>
+        //         <p>{product.condition}</p>
+        //         <h1>description</h1>
+        //         <p>{product.description}</p>
+        //         {/* <button
+        //             className="btn trade"
+        //             onClick = {this.trade}
+        //             // name = "trade"
+        //             value = {product._id} */}
+        //             {/* type="submit">trade</button> */}
+        //     </div>
+        //     );
+        //     // return (
+
+        //     //     // put this as component 
+        //     //     <Container>
+
+        //     //     </Container>
+        //     //     // this.state.products.map(product => {
+        //     //     //     console.log(product.user);
+
+        //     //     //     if (!(product.user == this.props.user)){
+        //     //     //     return (<div>             <h1> product name: </h1>
+
+        //     //     //         <p>{product.productname}</p>
+        //     //     //         <h1>condition</h1>
+        //     //     //         <p>{product.condition}</p>
+        //     //     //         <h1>description</h1>
+        //     //     //         <p>{product.description}</p>
+        //     //     //         <button 
+        //     //     //             className = "btn request"
+        //     //     //             name = "request"
+        //     //     //             value = {product._id}
+        //     //     //             onClick = {this.tradeRequest}
+        //     //     //             type = "submit">request</button>
+        //     //     //             </div>
+        //     //     //     );
+        //     //     //     }
+        //     //     // })
+        //     // )
+        // });
         // }
         // if (this.state.myProducts){
         //     list=   <MyUploads myProducts={this.state.myProducts} />
         // }
-        
-        
+
+
         // console.log(user)
         // console.log(this.state.products)
         // console.log(this.state.myProducts);
@@ -161,7 +184,7 @@ class Profile extends Component {
         //         )
         // }else {
 
-        
+
     }
 
 }

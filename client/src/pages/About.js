@@ -30,7 +30,7 @@ function About() {
                   </p>
             {/* </Container> */}
         </div>
-        </Container>
+        </Container>    
     );
 }
 export default About;

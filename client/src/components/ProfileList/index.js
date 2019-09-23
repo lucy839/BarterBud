@@ -7,19 +7,19 @@ class ProfileList extends Component {
         // this.state = {
         //     request : ""
         // }
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
     }
     // console.log(props.myProducts)
-    // handleSubmit(event){
-    //     event.preventDefault()
-	// 	// this.setState({
-	// 	// 	[event.target.name]: event.target.value
-    //     // })
-    //     console.log(event.target.value)
-    //     this.props.tradeRequest(		[event.target.name], event.target.value)
+    handleSubmit(event){
+        event.preventDefault()
+		// this.setState({
+		// 	[event.target.name]: event.target.value
+        // })
+        console.log(event.target.value)
+        this.props.tradeRequest([event.target.name], event.target.value)
 
-    // }
+    }
 
     // return (
     render() {
@@ -29,7 +29,12 @@ class ProfileList extends Component {
             console.log(product.user, this.props.user)
             console.log(product._id)
             if (product.status == "process"){
-                button = <button>Trade Requested</button>
+                button = <button
+                    className = "btn"
+                    name = "requested"
+                    value = {product._id}
+                    onClick = {this.handleSubmit}
+                    type = "submit">Trade Requested</button>
             }
             // console.log(myProduct.productname)
                 if (product.user == this.props.user){
@@ -48,8 +53,8 @@ class ProfileList extends Component {
                     name = "request"
                     value = {product._id}
                     onClick = {this.handleSubmit}
-                    type="submit">request</button> */}
-            </div>
+                    type="submit">request</button>*/}
+            </div> 
             );} 
         });
      
