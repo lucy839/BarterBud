@@ -18,8 +18,10 @@ class ProfileList extends Component {
         // })
         console.log(event.target.value)
         this.props.tradeRequest([event.target.name], event.target.value)
+        // this.props.getUser()
 
     }
+   
 
     // return (
     render() {

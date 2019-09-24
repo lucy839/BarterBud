@@ -22,6 +22,7 @@ class Profile extends Component {
         // this.closeRequest=this.closeRequest.bind(this)
         this.tradeRequest=this.tradeRequest.bind(this)
         this.getRequested =this.getRequested.bind(this)
+        this.getUser =this.getUser.bind(this)
     }
 
     // when the page is loaded, display all the items in the data
@@ -30,7 +31,7 @@ class Profile extends Component {
         this.loadItems();
 
     }
-    tradeRequest = (name, value) => {
+    tradeRequest = (name, value, obj) => {
         console.log(value)
         // console.log(event.target.value)
         // event.preventDefault()
@@ -38,10 +39,11 @@ class Profile extends Component {
             [name]: [value],
             tradeRequest: true
         })
+
         this.getRequested(value);
         
     }
-    getRequested = (requested) => {
+    getRequested = (requested,obj) => {
         console.log(requested)
         // needs to get this value's product from the data 
         // API.tradeRequest(this.state.requested)
@@ -59,8 +61,8 @@ class Profile extends Component {
                         //     console.log(res2)
                     )
                     .catch(err => console.log(err));
-                        
-
+              
+// this.getUser();
     }
     getUser = () =>{
         // event.preventDefault();
@@ -113,15 +115,18 @@ class Profile extends Component {
     //         tradeRequest: false
     //     })
     // }
-    render() {
-        if (this.state.tradeRequest) {
-                    this.getUser()
-      
-        }
+    render() {   if(this.state.user&&(!(this.state.gotUser))){
+        this.getUser()
+    }
+        // if(this.state.tradeRequest){
+        //     this.getUser();
+        // }
+        // console.log(this.state.gotUser)
         if (this.state.gotUser){
             return (<Container><Request products= {this.state.requestFrom} email = {this.state.email}></Request></Container>)
 
-        } else {
+        } 
+        else {
             console.log(this.state.myProducts)
             return (<Container>
                 <ProfileList products={this.state.myProducts} tradeRequest={this.tradeRequest} user={this.props.user} />
