@@ -15,5 +15,6 @@ router.route("/upload")
 .post(uploadController.create)
 router.route("/trade")
 .post(uploadController.findByProduct)
+// .post(uploadController.finByProduct2)
 
 module.exports = router;

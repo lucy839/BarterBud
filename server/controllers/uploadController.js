@@ -10,20 +10,38 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // },
   findByProduct: function (req, res) {
-    // console.log(here)
+
+    console.log("here"  )
     console.log(req.body[0][0])
     console.log(req.body[1])
     let filter = { _id: req.body[1] }
     let from = req.body[0][0]
     let filter2 = { _id: req.body[0][0] }
+    console.log(filter2)
     let from2 = req.body[1]
-
+// console.log(from2)
     Upload
       .findOneAndUpdate(filter, { status: "process", requestFrom: from })
-      .then(Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 }))
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => console.log(dbModel))
+      // .then(Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 }))
+      // .then(dbModel1 => console.log(dbModel1))
+    // Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 })
+    //   .then(dbModel => console.log(dbModel))
+      .catch(err => res.status(422).json(err));
+      Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 })
+      .then(dbModel1 => console.log(dbModel1))
+    // Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 })
+    //   .then(dbModel => console.log(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  // finByProduct2:function(req,res){
+  //   let filter2 = { _id: req.body[0][0] }
+  //   let from2 = req.body[1]
+  //   Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 }).then(dbModel => console.log(dbModel))
+  //   // Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 })
+  //   //   .then(dbModel => console.log(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // },
   findById: function (req, res) {
     console.log("Find id")
     console.log(req.params)
