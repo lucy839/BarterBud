@@ -1,14 +1,15 @@
 const Upload = require('../db/models/upload')
+const User = require("../db/models/user")
 module.exports = {
-  // findAll: function(req, res) {
-  //   console.log("Find all")
+  findAll: function(req, res) {
+    console.log("Find all")
 
-  //   User
-  //     .find({})
-  //     .sort({ score: -1 })
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+    User
+      .find({_id:req.params.id})
+      // .sort({ score: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findByProduct: function (req, res) {
 
     console.log("here"  )
@@ -43,6 +44,15 @@ module.exports = {
   //     .catch(err => res.status(422).json(err));
   // },
   findById: function (req, res) {
+    console.log("Find id")
+    console.log(req.params)
+    Upload
+      .find({_id: req.params.id })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  
+  },
+  findByUser: function (req, res) {
     console.log("Find id")
     console.log(req.params)
     Upload

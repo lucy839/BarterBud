@@ -1,43 +1,44 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom'
 
-class ProfileList extends Component {
+class Request extends Component {
     constructor(props) {
         super(props)
-        // this.state = {
-        //     request : ""
-        // }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.state = {
+            request : ""
+        }
+        // this.handleSubmit = this.handleSubmit.bind(this)
 
     }
     // console.log(props.myProducts)
-    handleSubmit(event){
-        event.preventDefault()
-		// this.setState({
-		// 	[event.target.name]: event.target.value
-        // })
-        console.log(event.target.value)
-        this.props.tradeRequest([event.target.name], event.target.value)
+    // handleSubmit(event){
+    //     event.preventDefault()
+	// 	// this.setState({
+	// 	// 	[event.target.name]: event.target.value
+    //     // })
+    //     console.log(event.target.value)
+    //     this.props.tradeRequest([event.target.name], event.target.value)
 
-    }
+    // }
 
     // return (
     render() {
-        let button ;
-        // console.log(this.state.request) 
+        // let button    ;
+        // let data = this.props.products.data 
+        console.log(this.props.products) 
         let list = this.props.products.map(product => {
             console.log(product.user, this.props.user)
             console.log(product.requestFrom)
-            if (product.status == "process"){
-                button = <button
-                    className = "btn"
-                    name = "requested"
-                    value = {product.requestFrom}
-                    onClick = {this.handleSubmit}
-                    type = "submit">Trade Requested</button>
-            }
+            // if (product.status == "process"){
+            //     button = <button
+            //         className = "btn"
+            //         name = "requested"
+            //         value = {product.requestFrom}
+            //         onClick = {this.handleSubmit}
+            //         type = "submit">Trade Requested</button>
+            // }
             // console.log(myProduct.productname)
-                if (product.user == this.props.user){
+                // if (product.user == this.props.user){
                 
                 return (<div>
 
@@ -47,7 +48,9 @@ class ProfileList extends Component {
                 <p>{product.condition}</p>
                 <h1>description</h1>
                 <p>{product.description}</p>
-                {button}
+                <h1>email</h1>
+                <p>{this.props.email}</p>
+                {/* {button} */}
                 {/* <button
                     className="btn trade"
                     name = "request"
@@ -55,7 +58,8 @@ class ProfileList extends Component {
                     onClick = {this.handleSubmit}
                     type="submit">request</button>*/}
             </div> 
-            );} 
+            );
+        // } 
         });
      
         // if there is no books saved, display this
@@ -66,4 +70,4 @@ class ProfileList extends Component {
 
     }
 }
-export default ProfileList
+export default Request

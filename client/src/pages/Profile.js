@@ -3,21 +3,25 @@ import React, { Component } from 'react';
 import API from '../utils/API';
 import ProfileList from "../components/ProfileList/index"
 import Container from "../components/Container";
-
+import Request from "../components/Request/index"
 class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
             // products: [],
             tradeRequest: false,
-            // user: "",
+            user: "",
             myProducts: [],
-            requested: ""
+            requested: "",
+            requestFrom:[],
+            gotUser:false,
+            email:""
         }
         // this.loadItems=this.loadItems.bind(this)
         // this.getMyList = this.getMyList.bind(this)
         // this.closeRequest=this.closeRequest.bind(this)
-        // this.tradeRequest=this.tradeRequest.bind(this)
+        this.tradeRequest=this.tradeRequest.bind(this)
+        this.getRequested =this.getRequested.bind(this)
     }
 
     // when the page is loaded, display all the items in the data
@@ -27,22 +31,50 @@ class Profile extends Component {
 
     }
     tradeRequest = (name, value) => {
-        console.log(name)
+        console.log(value)
         // console.log(event.target.value)
         // event.preventDefault()
         this.setState({
             [name]: [value],
             tradeRequest: true
         })
-
-        //         API.tradeRequest(this.props.user)
-        //             .then(res =>
-        // // console.log(res.data)
-        //                 this.setState({ myProducts: res.data})
-
-        //             )
-        //             .catch(err => console.log(err));
+        this.getRequested(value);
+        
     }
+    getRequested = (requested) => {
+        console.log(requested)
+        // needs to get this value's product from the data 
+        // API.tradeRequest(this.state.requested)
+
+                API.getRequest(requested)
+                    .then(res =>
+        // console.log(res.data[0].user),
+        this.setState({requestFrom: res.data,user:res.data[0].user }),
+        // console.log(this.state.requestFrom),
+
+        // this.getUser(res.data[0].user)
+// this.getUser()
+                        // this.setState({user: res.data[0].user})
+                        // API.findUser(res.data[0].user).then(res2 =>
+                        //     console.log(res2)
+                    )
+                    .catch(err => console.log(err));
+                        
+
+    }
+    getUser = () =>{
+        // event.preventDefault();
+        console.log(this.state.user)
+        let user = this.state.user  
+        // let data = this.state.requestFrom.data
+        // console.log(data[0])
+        API.findUser(user).then(res =>
+            this.setState({gotUser:true, email:res.data[0].local.email })
+                            // console.log(res.data[0].local.email)
+                        )
+                        .catch(err => console.log(err));
+    }
+
     // save all data in name, condition, image, description
     loadItems = () => {
         API.display()
@@ -83,7 +115,12 @@ class Profile extends Component {
     // }
     render() {
         if (this.state.tradeRequest) {
-            return (<Container>testing</Container>)
+                    this.getUser()
+      
+        }
+        if (this.state.gotUser){
+            return (<Container><Request products= {this.state.requestFrom} email = {this.state.email}></Request></Container>)
+
         } else {
             console.log(this.state.myProducts)
             return (<Container>

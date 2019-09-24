@@ -25,12 +25,20 @@ export default {
     return axios.get("/api/upload");
   },
   tradeRequest: function(user){
+    console.log(user)
     return axios.get("/api/upload/"+user);
   },
   // after trade is requested..
   requestTrade: function(products){
     console.log(products);
-    return axios.post("api/trade",products)
+    return axios.post("/api/trade",products)
+  },
+  getRequest: function(user){
+    return axios.get("/api/uploaded/"+user);
+  },
+  findUser: function(user){
+    console.log(user)
+    return axios.get("/api/user/"+user)
   }
   // get scores
 //   updateScore: function(username) {
