@@ -29,12 +29,12 @@ class ProfileList extends Component {
         // console.log(this.state.request) 
         let list = this.props.products.map(product => {
             console.log(product.user, this.props.user)
-            console.log(product.requestFrom)
+            console.log(product)
             if (product.status == "process"){
                 button = <button
                     className = "btn"
                     name = "requested"
-                    value = {product.requestFrom}
+                    value = {[product.requestFrom, product._id]}
                     onClick = {this.handleSubmit}
                     type = "submit">Trade Requested</button>
             }

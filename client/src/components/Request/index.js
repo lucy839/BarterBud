@@ -1,33 +1,45 @@
 import React, {Component} from 'react';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import API from '../../utils/API';
 
 class Request extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            request : ""
+            accept : ""
         }
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
 
     }
     // console.log(props.myProducts)
-    // handleSubmit(event){
-    //     event.preventDefault()
-	// 	// this.setState({
-	// 	// 	[event.target.name]: event.target.value
-    //     // })
-    //     console.log(event.target.value)
-    //     this.props.tradeRequest([event.target.name], event.target.value)
+    handleSubmit(event){
+        console.log(this.props.thisProduct)
+        event.preventDefault()
+		this.setState({
+			[event.target.name]: event.target.value
+        })
+        console.log(event.target.value)
+        this.traded(event.target.value);
+        // this.props.tradeRequest([event.target.name], event.target.value)
 
-    // }
+    }
+    traded (value){
+        let products = [value, this.props.thisProduct];
+     
+        API.traded(products).then(
+            alert("Please communicate via "+ this.props.email)  
+             ).catch(err => console.log(err))
+    }
 
     // return (
     render() {
         // let button    ;
         // let data = this.props.products.data 
+        // *****
+        console.log(this.props.thisProduct)
         console.log(this.props.products) 
         let list = this.props.products.map(product => {
-            console.log(product.user, this.props.user)
+            // console.log(product.user, this.props.user)
             console.log(product.requestFrom)
             // if (product.status == "process"){
             //     button = <button
@@ -51,12 +63,12 @@ class Request extends Component {
                 <h1>email</h1>
                 <p>{this.props.email}</p>
                 {/* {button} */}
-                {/* <button
+                <button
                     className="btn trade"
-                    name = "request"
+                    name = "accept"
                     value = {product._id}
                     onClick = {this.handleSubmit}
-                    type="submit">request</button>*/}
+                    type="submit">Accept</button>
             </div> 
             );
         // } 

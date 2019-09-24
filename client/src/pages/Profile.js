@@ -8,7 +8,7 @@ class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            // products: [],
+            thisProduct: "",
             tradeRequest: false,
             user: "",
             myProducts: [],
@@ -31,16 +31,22 @@ class Profile extends Component {
         this.loadItems();
 
     }
-    tradeRequest = (name, value, obj) => {
-        console.log(value)
+    tradeRequest = (name, value) => {
+         // *****
+        let info = value.split(",")
+        // console.log()
+        console.log(info[0]    )
         // console.log(event.target.value)
         // event.preventDefault()
+         // *****
         this.setState({
-            [name]: [value],
-            tradeRequest: true
+            [name]: [info[0]],
+            tradeRequest: true,
+            thisProduct:info[1]
+
         })
 
-        this.getRequested(value);
+        this.getRequested(info[0]);
         
     }
     getRequested = (requested,obj) => {
@@ -122,8 +128,9 @@ class Profile extends Component {
         //     this.getUser();
         // }
         // console.log(this.state.gotUser)
+         // *****
         if (this.state.gotUser){
-            return (<Container><Request products= {this.state.requestFrom} email = {this.state.email}></Request></Container>)
+            return (<Container><Request products= {this.state.requestFrom} email = {this.state.email}thisProduct = {this.state.thisProduct}> </Request></Container>)
 
         } 
         else {

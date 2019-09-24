@@ -10,9 +10,11 @@ router.route("/upload/:id")
 .get(uploadController.findByUser)
 router.route("/uploaded/:id")
 .get(uploadController.findById)
-
+router.route("/traded")
+.post(uploadController.tradeByProduct)
 router.route("/upload")
 .get(uploadController.display)
+
 .post(uploadController.create)
 router.route("/trade")
 .post(uploadController.findByProduct)

@@ -39,6 +39,10 @@ export default {
   findUser: function(user){
     console.log(user)
     return axios.get("/api/user/"+user)
+  },
+  traded:function(products){
+    console.log(products);
+    return axios.post("/api/traded",products)
   }
   // get scores
 //   updateScore: function(username) {
