@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Modal, { ModalHeader, ModalBody } from "../components/Modal/index";
 import Jumbotron from "../components/Jumbotron/index"
-// link signup page and sign in page
 import Signin from "../components/Signin/index";
 import Signup from "../components/Signup/index";
 import "./style.css";
@@ -16,19 +15,15 @@ class LoginPage extends Component {
         this.toggle = this.toggle.bind(this);
     }
 
+    // assign button to open either signup form or signin form and 
+    // assing modal state for open or close
     toggle = event => {
         const { name, value } = event.target;
         this.setState({ modal: !this.state.modal, [name]: value });
     }
-    // handleSignin() {
-    //     this.setState({formToPresent:<Signin/>});
-    //     // this.setState({formToPresent: <Login></Login>})
-    // }
-    // handleSignup(){
-    //     this.setState({formToPresent:<Signup/>});
 
-    // }
     render() {
+        // display form according to assigned button
         var form = "";
         switch (this.state.button) {
             case "signin":
@@ -39,6 +34,8 @@ class LoginPage extends Component {
                 break
             default:
         }
+
+        // display modal according to modal state
         var modal = "";
         switch (this.state.modal) {
             case true:
@@ -63,10 +60,9 @@ class LoginPage extends Component {
             case false:
                 modal = <Jumbotron>
                     <div>
-                        <h1 class="intro">Welcome to Barter Bud <i class="fas fa-sync-alt"></i><div id="#user"></div></h1>
+                        <h1 class="intro">Welcome to Barter Bud <i className="fas fa-sync-alt"></i><div id="#user"></div></h1>
                         <br></br>
                         <button name="button" type="button" className="btn" value="signup" onClick={this.toggle}>Sign Up</button>
-                        {/* If login button is clicked, have login page pop up */}
                         <button name="button" type="button" className="btn" value="signin" onClick={this.toggle}>Login</button>
                     </div>
                 </Jumbotron>
