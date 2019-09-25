@@ -25,9 +25,13 @@ class Request extends Component {
     }
     traded (value){
         let products = [value, this.props.thisProduct];
-     
-        API.traded(products).then(
-            alert("Please communicate via "+ this.props.email)  
+        // let users ;
+        API.traded(products).then(res =>
+            // res => console.log(res)
+            API.switchUser([this.props.user,res.data.user]).then(
+                res=> console.log(res)
+            )
+            // alert("Please c  ommunicate via "+ this.props.email)  
              ).catch(err => console.log(err))
     }
 
@@ -36,7 +40,7 @@ class Request extends Component {
         // let button    ;
         // let data = this.props.products.data 
         // *****
-        console.log(this.props.thisProduct)
+        console.log(this.props.user )
         console.log(this.props.products) 
         let list = this.props.products.map(product => {
             // console.log(product.user, this.props.user)

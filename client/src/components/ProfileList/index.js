@@ -34,9 +34,12 @@ class ProfileList extends Component {
                 button = <button
                     className = "btn"
                     name = "requested"
+                     // *****
                     value = {[product.requestFrom, product._id]}
                     onClick = {this.handleSubmit}
                     type = "submit">Trade Requested</button>
+            }else {
+                button = <div></div>
             }
             // console.log(myProduct.productname)
                 if (product.user == this.props.user){

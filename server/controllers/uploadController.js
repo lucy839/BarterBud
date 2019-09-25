@@ -61,6 +61,7 @@ module.exports = {
     let filter2 = { _id: req.body[0]}
     console.log(filter2)
     let from2 = req.body[1]
+ 
     // *******user change needs to be workedon
 // console.log(from2)
     Upload
@@ -72,10 +73,25 @@ module.exports = {
     //   .then(dbModel => console.log(dbModel))
       .catch(err => res.status(422).json(err));
       Upload.findOneAndUpdate(filter2, { status: "traded",requestFrom:""  })
-      .then(dbModel1 => console.log(dbModel1))
+      .then(dbModel1 => res.json(dbModel1))
     // Upload.findOneAndUpdate(filter2, { status: "process", requestFrom: from2 })
     //   .then(dbModel => console.log(dbModel))
-      .catch(err => res.status(422).json(err));},
+      .catch(err => res.status(422).json(err));
+     
+  },
+  switchUser:function(req,res){
+    let user1 ={user:req.body[0]};
+    let user2 = {user:req.body[1]};
+    let to = req.body[1];
+    let to2 = req.body[0];
+    console.log(user1, user2)
+ Upload.findOneAndUpdate(user1, {user: req.body[1]})
+      .then(dbModel =>console.log(dbModel))
+      .catch(err=> res.status(422).json(err));
+      Upload.findOneAndUpdate(user2, {user: req.body[0]})
+      .then(dbModel1 => res.json(dbModel1))
+      .catch(err=> res.status(422).json(err));
+  },
   findByUser: function (req, res) {
     console.log("Find id")
     console.log(req.params)

@@ -130,7 +130,7 @@ class Profile extends Component {
         // console.log(this.state.gotUser)
          // *****
         if (this.state.gotUser){
-            return (<Container><Request products= {this.state.requestFrom} email = {this.state.email}thisProduct = {this.state.thisProduct}> </Request></Container>)
+            return (<Container><Request user={this.props.user}products= {this.state.requestFrom} email = {this.state.email}thisProduct = {this.state.thisProduct}> </Request></Container>)
 
         } 
         else {

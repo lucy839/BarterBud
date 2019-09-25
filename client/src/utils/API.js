@@ -43,6 +43,10 @@ export default {
   traded:function(products){
     console.log(products);
     return axios.post("/api/traded",products)
+  },
+  switchUser:function(users){
+    console.log(users)
+    return axios.post("/api/user",users)
   }
   // get scores
 //   updateScore: function(username) {
