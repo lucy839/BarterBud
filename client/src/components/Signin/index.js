@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-    import { Redirect } from 'react-router-dom'
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 
 class Signin extends Component {
@@ -15,19 +15,20 @@ class Signin extends Component {
 		this.handleChange = this.handleChange.bind(this)
 	}
 
+    // when id and password is entered, set it to state
 	handleChange(event) {
 		this.setState({
 			[event.target.name]: event.target.value
 		})
 	}
 
+    // when button is clicked, call _login function from props, the reset the state
 	handleSubmit(event) {
-		event.preventDefault()
-		console.log('handleSubmit')
+		event.preventDefault();
 		this.props._login(this.state.username, this.state.password, this)
 		this.setState({
-			username: '',
-			password: '',
+			username: "",
+			password: "",
 		})
 	}
 
@@ -78,7 +79,6 @@ class Signin extends Component {
                             <div className="col-7"></div>
                             <button
                                 className="btn login"
-                               
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
                         </div>
