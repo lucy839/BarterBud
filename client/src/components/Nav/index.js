@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 
-class Nav extends Component {
-    constructor(props) {
-        super(props)
-    }
-
+class Nav extends Component {    
     // Navigation bar
     render() {
         return (
@@ -41,8 +37,6 @@ class Nav extends Component {
             </div>
         );
     }
-
-
 }
 
 export default Nav;
