@@ -6,28 +6,28 @@ class Nav extends Component {
     render() {
         return (
             <div>
-                <nav class="navbar navbar-expand-lg fixed-top">
-                    <div class="navbar-brand">Barter Bud <i class="fas fa-sync-alt"></i></div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                <nav className="navbar navbar-expand-lg fixed-top">
+                    <div className="navbar-brand">Barter Bud <i className="fas fa-sync-alt"></i></div>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav ml-auto">
+                            <ul className="nav nav-pills">
+                                <li className="nav-item">
                                     <a href="/about">about</a>
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <a href="/market">market</a>
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <a href="/upload">upload</a>
                                 </li>
                                 <li className="nav-item">
                                     <a href="/profile">profile</a>
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <a onClick={this.props._logout}>Logout</a>
                                 </li>
                             </ul>

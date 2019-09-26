@@ -25,7 +25,7 @@ class Upload extends Component {
         })
     }
 
-    // when button is clicked, save data to database, and reset the form
+    // when button is clicked, save data to database,    and reset the form
     handleSubmit(event) {
         event.preventDefault();
         API.upload(this.state)
@@ -45,22 +45,22 @@ class Upload extends Component {
             <Container>
                 <div>
                     <h2 id="upload">Upload</h2>
-                    <form class="create-form" >
-                        <div class="form-group">
-                            <label for="ca">Product name:</label>
+                    <form className="create-form" >
+                        <div className="form-group">
+                            <label htmlFor="ca">Product name:</label>
                             <input type="text"
                                 id="productname"
                                 name="productname"
                                 value={this.state.productname}
                                 onChange={this.handleChange}
                                 required />
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 Please enter product name.
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="condition">Condition:</label>
-                            <select class="form-control"
+                        <div className="form-group">
+                            <label htmlFor="condition">Condition:</label>
+                            <select className="form-control"
                                 id="condition"
                                 name="condition"
                                 onChange={this.handleChange}
@@ -72,21 +72,21 @@ class Upload extends Component {
                                 <option value="okay">Okay</option>
                                 <option value="bad">Bad</option>
                             </select>
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 Please choose the condition of product.
+                            </div>
                         </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="ca">Description:</label>
+                        <div className="form-group">
+                            <label htmlFor="ca">Description:</label>
                             <input type="text"
                                 id="description"
                                 name="description"
                                 value={this.state.description}
                                 onChange={this.handleChange}
                                 required />
-                            <div class="invalid-feedback">
+                            <div className="invalid-feedback">
                                 Please enter description of product.
-                        </div>
+                            </div>
                         </div>
                         <button
                             id="submit"
