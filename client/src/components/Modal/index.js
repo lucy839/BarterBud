@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import './style.css';
+import React, { Component } from "react";
+import "./style.css";
+
 export const ModalHeader = props => {
   return <div className="modal-header">{props.children}</div>;
 };
@@ -16,8 +17,8 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalShow: '',
-      display: 'none'
+      modalShow: "",
+      display: "none"
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -25,15 +26,15 @@ class Modal extends Component {
 
   openModal() {
     this.setState({
-      modalShow: 'show',
-      display: 'block'
+      modalShow: "show",
+      display: "block"
     });
   }
 
   closeModal() {
     this.setState({
-      modalShow: '',
-      display: 'none'
+      modalShow: "",
+      display: "none"
     });
   }
 
@@ -50,7 +51,7 @@ class Modal extends Component {
   render() {
     return (
       <div
-        className={'modal fade ' + this.state.modalShow}
+        className={"modal fade " + this.state.modalShow}
         tabIndex="-1"
         role="dialog"
         aria-hidden="true"
