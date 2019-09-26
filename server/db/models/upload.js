@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const bcrypt = require('bcryptjs');
 mongoose.promise = Promise
 
 // Define uploadSchema
@@ -16,8 +15,7 @@ const uploadSchema = new Schema({
     },
     status: String,
     requestFrom: String
-})
-
+});
 
 const Upload = mongoose.model('Upload', uploadSchema)
 module.exports = Upload
