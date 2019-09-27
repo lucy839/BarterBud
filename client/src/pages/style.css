@@ -20,6 +20,24 @@ button:hover {
 .login{
     margin-left:20%;
 }
+
+/* About page */
 .about {
     text-align: left
+}
+#title{
+    font-size:50px;
+}
+#highlight {
+    font-size:50px;
+    text-align: center;
+}
+#linkedin, #github{
+    width:25px; 
+    margin-right:5px;
+}
+#portfolio {
+    width:35px; 
+    margin-right:5px;
+    margin-left:44.5%;
 }

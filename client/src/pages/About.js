@@ -7,7 +7,7 @@ function About() {
         <Container>
             <div>
                 <h1 className="text-center">
-                    What is <strong>Barter Bud</strong>?
+                    What is <strong id ="title">Barter Bud</strong>?
                 </h1>
                 <br></br>
                 <p className="about">
@@ -24,7 +24,19 @@ function About() {
                     Barter bud helps the community.
                     <br></br>
                     Barter Bud helps all the community with decluttering homes, offices, yards to make a better aesthetic backgrounds to have a peaceful mind. It is so important for our environment to Reduce landfills, with Reuse and Recycle Items as much as possible. Recycling saves energy, it also reduces greenhouse gas emissions. The community feels stronger connections since they interact and helping each other.
-                  </p>
+                    <br></br>
+                    <br></br>
+                    <h5 id="highlight">Enjoy!</h5>
+                    <a href="https://lucylee.kim/">
+                        <img id="portfolio" src={require("./logo.png")} alt="portfolio" />
+                    </a>
+                    <a href="https://github.com/lucy839">
+                        <img id="github" src={require("./github.svg")} alt="github" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/youngju-lucy-lee-4b9578178/">
+                        <img id="linkedin" src={require("./linkedin.png")} alt="linkedin" />
+                    </a>
+                </p>
             </div>
         </Container>
     );
