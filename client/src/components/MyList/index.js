@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./style.css";
 
 class ProfileList extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class ProfileList extends Component {
     // when clicked, call tradeRequest from the props with this product
     handleSubmit(event) {
         event.preventDefault();
-        this.props.tradeRequest([event.target.name], event.target.value)
+        this.props.getRequestInfo([event.target.name], event.target.value)
     }
 
     render() {
@@ -19,28 +20,28 @@ class ProfileList extends Component {
             // if status is process, button will be given
             if (product.status == "process") {
                 button = <button
-                    className="btn"
+                    className="btn requested"
                     name="requested"
                     value={[product.requestFrom, product._id]}
                     onClick={this.handleSubmit}
                     type="submit">Trade Requested</button>
-            } else if (product.status =="traded"){
-                button = <h3>New Item! (traded)</h3>
-                            
-               }   else {
+            } else if (product.status == "traded") {
+                button = <button
+                className="btn new"
+                type="submit">NEW ITEM! (traded)</button>
+
+            } else {
                 // else no button
                 button = <div></div>
             }
 
             // only display my products
             if (product.user == this.props.user) {
-                return (<div>
-                    <h1> product name: </h1>
-                    <p>{product.productname}</p>
-                    <h1>condition</h1>
-                    <p>{product.condition}</p>
-                    <h1>description</h1>
-                    <p>{product.description}</p>
+                return (<div className="col-md-4 products" key={product._id}>
+                    <img src={product.image} style={{ width: "300px" }} />
+                    <p> <strong id="product">PRODUCT NAME: </strong>{product.productname} </p>
+                    <p> <strong id="product">CONDITION: </strong>{product.condition} </p>
+                    <p> <strong id="product"> DESCRIPTION: </strong>{product.description} </p>
                     {button}
                 </div>
                 );
@@ -48,7 +49,7 @@ class ProfileList extends Component {
         });
 
         return (
-            <div>
+            <div className = "row">
                 {list}
             </div>
         )

@@ -28,13 +28,13 @@ function About() {
                     <br></br>
                     <h5 id="highlight">Enjoy!</h5>
                     <a href="https://lucylee.kim/">
-                        <img id="portfolio" src={require("./logo.png")} alt="portfolio" />
+                        <img id="portfolio" src={require("./images/logo.png")} alt="portfolio" />
                     </a>
                     <a href="https://github.com/lucy839">
-                        <img id="github" src={require("./github.svg")} alt="github" />
+                        <img id="github" src={require("./images/github.svg")} alt="github" />
                     </a>
                     <a href="https://www.linkedin.com/in/youngju-lucy-lee-4b9578178/">
-                        <img id="linkedin" src={require("./linkedin.png")} alt="linkedin" />
+                        <img id="linkedin" src={require("./images/linkedin.png")} alt="linkedin" />
                     </a>
                 </p>
             </div>

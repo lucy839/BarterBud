@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import ProfileList from "../components/ProfileList/index";
+import MyList from "../components/MyList/index";
 import Container from "../components/Container";
 import Request from "../components/Request/index";
 
@@ -17,9 +17,10 @@ class Profile extends Component {
             gotUser: false,
             email: ""
         }
-        this.tradeRequest = this.tradeRequest.bind(this)
+        this.getRequestInfo = this.getRequestInfo.bind(this)
         this.getRequested = this.getRequested.bind(this)
         this.getUser = this.getUser.bind(this)
+        this.closeRequest = this.closeRequest.bind(this)
     }
 
     // when the page is loaded, display my items in the data
@@ -35,10 +36,17 @@ class Profile extends Component {
             )
             .catch(err => console.log(err));
     }
+    // close the list of my products    
+    closeRequest() {
+        this.setState({
+            gotUser: false,
+            user:""
+        })
+    }
 
     // when button is clicked, set chosed products' information to state
     // then call getrequested function with requested product id
-    tradeRequest = (name, value) => {
+    getRequestInfo = (name, value) => {
         let info = value.split(",")
         this.setState({
             [name]: [info[0]],
@@ -78,13 +86,13 @@ class Profile extends Component {
         if (this.state.gotUser) {
             return (
                 <Container>
-                    <Request user={this.props.user} products={this.state.requestFrom} email={this.state.email} thisProduct={this.state.thisProduct}> </Request>
+                    <Request user={this.props.user} products={this.state.requestFrom} email={this.state.email} thisProduct={this.state.thisProduct} closeRequest={this.closeRequest}> </Request>
                 </Container>
             );
         } else {
             return (
                 <Container>
-                    <ProfileList products={this.state.myProducts} tradeRequest={this.tradeRequest} user={this.props.user} />
+                    <MyList products={this.state.myProducts} getRequestInfo={this.getRequestInfo} user={this.props.user} />
                 </Container>
             );
         }

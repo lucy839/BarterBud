@@ -28,11 +28,13 @@ button:hover {
 #title{
     font-size:50px;
     color: rgb(198, 23, 174);
+    font-family: 'Inconsolata', monospace;
 }
 #highlight {
     font-size:50px;
     text-align: center;
     color: rgb(198, 23, 174);
+    font-family: 'Inconsolata', monospace;
 }
 #linkedin, #github{
     width:25px; 

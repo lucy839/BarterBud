@@ -20,9 +20,9 @@ class Products extends Component {
                 if (!(product.status == "traded")){
                     return (<div className ="col-md-4 products" key={product._id}>
                         <img src = {product.image} style = {{width:"300px"}}/>
-                        <p> <strong id = "product">product name: </strong>{product.productname} </p>
-                        <p> <strong id = "product">condition: </strong>{product.condition} </p>
-                        <p> <strong id = "product">description: </strong>{product.description} </p>
+                        <p> <strong id = "product">PRODUCT NAME: </strong>{product.productname} </p>
+                        <p> <strong id = "product">CONDITION: </strong>{product.condition} </p>
+                        <p> <strong id = "product">DESCRIPTION: </strong>{product.description} </p>
                         <button
                             className="btn trade"
                             name="request"

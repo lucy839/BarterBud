@@ -5,4 +5,8 @@
 }   
 #product{
     color: rgb(198, 23, 174);
+    font-family: 'Inconsolata', monospace;
+}
+.trade{
+    font-family: 'Inconsolata', monospace;
 }

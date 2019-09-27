@@ -1,0 +1,15 @@
+.new{
+    width:270px;
+    border:none;
+    color: rgb(198, 23, 174);
+    font-family: 'Inconsolata', monospace;
+    font-weight:bold;
+    font-size: 25px;
+}
+.new:hover{
+    background:none;
+    color: rgb(198, 23, 174);
+}
+.requested{
+    font-family: 'Inconsolata', monospace;
+}
