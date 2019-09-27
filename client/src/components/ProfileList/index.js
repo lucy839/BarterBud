@@ -24,7 +24,10 @@ class ProfileList extends Component {
                     value={[product.requestFrom, product._id]}
                     onClick={this.handleSubmit}
                     type="submit">Trade Requested</button>
-            } else {
+            } else if (product.status =="traded"){
+                button = <h3>New Item! (traded)</h3>
+                            
+               }   else {
                 // else no button
                 button = <div></div>
             }

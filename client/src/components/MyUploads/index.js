@@ -35,21 +35,23 @@ class MyUploads extends Component {
         // format my products from props
         let back = <button className="btn trade" type="submit" onClick={this.back}>back</button>;
         let list = this.props.myProducts.map(product => {
-            return (<div>
-                <img src = {product.image} style = {{width:"300px"}}/>
-                <h1> product name: </h1>
-                <p>{product.productname}</p>
-                <h1>condition</h1>
-                <p>{product.condition}</p>
-                <h1>description</h1>
-                <p>{product.description}</p>
-                <button
-                    className="btn trade"
-                    onClick={this.trade}
-                    value={product._id}
-                    type="submit">trade</button>
-            </div>
-            );
+            if (!(product.status == "traded")) {
+                return (<div>
+                    <img src={product.image} style={{ width: "300px" }} />
+                    <h1> product name: </h1>
+                    <p>{product.productname}</p>
+                    <h1>condition</h1>
+                    <p>{product.condition}</p>
+                    <h1>description</h1>
+                    <p>{product.description}</p>
+                    <button
+                        className="btn trade"
+                        onClick={this.trade}
+                        value={product._id}
+                        type="submit">trade</button>
+                </div>
+                );
+            }
         });
 
         if (this.state.redirectTo) {

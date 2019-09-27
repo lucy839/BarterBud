@@ -16,22 +16,24 @@ class Products extends Component {
         // format the products from props
         let list = this.props.products.map(product => {
             if (!(product.user == this.props.user)) {
-                return (<div>
-                    <img src = {product.image} style = {{width:"300px"}}/>
-                    <h1> product name: </h1>
-                    <p>{product.productname}</p>
-                    <h1>condition</h1>
-                    <p>{product.condition}</p>
-                    <h1>description</h1>
-                    <p>{product.description}</p>
-                    <button
-                        className="btn trade"
-                        name="request"
-                        value={product._id}
-                        onClick={this.handleSubmit}
-                        type="submit">request</button>
-                </div>
-                );
+                if (!(product.status == "traded")){
+                    return (<div>
+                        <img src = {product.image} style = {{width:"300px"}}/>
+                        <h1> product name: </h1>
+                        <p>{product.productname}</p>
+                        <h1>condition</h1>
+                        <p>{product.condition}</p>
+                        <h1>description</h1>
+                        <p>{product.description}</p>
+                        <button
+                            className="btn trade"
+                            name="request"
+                            value={product._id}
+                            onClick={this.handleSubmit}
+                            type="submit">request</button>
+                    </div>
+                    );
+                }
             }
         });
 
