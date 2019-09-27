@@ -14,7 +14,8 @@ const uploadSchema = new Schema({
         lowercase: true
     },
     status: String,
-    requestFrom: String
+    requestFrom: String,
+    image: String
 });
 
 const Upload = mongoose.model('Upload', uploadSchema)

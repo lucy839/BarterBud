@@ -38,5 +38,5 @@ export default {
   switchUser:function(users){
     console.log(users)
     return axios.post("/api/user",users)
-  }
+  },
 };

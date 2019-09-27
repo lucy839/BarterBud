@@ -17,6 +17,7 @@ class Products extends Component {
         let list = this.props.products.map(product => {
             if (!(product.user == this.props.user)) {
                 return (<div>
+                    <img src = {product.image} style = {{width:"300px"}}/>
                     <h1> product name: </h1>
                     <p>{product.productname}</p>
                     <h1>condition</h1>

@@ -11,10 +11,13 @@ class Upload extends Component {
             condition: "",
             description: "",
             status: "available",
-            requestFrom: ""
+            requestFrom: "",
+            image: "",
+            loading:false,
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.saveImage = this.saveImage.bind(this)
     }
 
     // set product informations as use enters
@@ -28,16 +31,49 @@ class Upload extends Component {
     // when button is clicked, save data to database,    and reset the form
     handleSubmit(event) {
         event.preventDefault();
-        API.upload(this.state)
+        let product = {
+            user:this.state.user,
+            productname:this.state.productname,
+            condition: this.state.condition,
+            description: this.state.description,
+            status:this.state.status,
+            requestFrom:this.state.requestFrom,
+            image:this.state.image
+        }
+        API.upload(product)
             .then(
                 alert("Upload Complete!"),
                 this.setState({
                     user: "",
                     productname: "",
-                    description: ""
+                    condition:"",
+                    description: "",
+                    image:""
                 })
             )
             .catch(err => console.log(err))
+    }
+    saveImage = async event => {    
+        const files = event.target.files;
+        const data = new FormData();
+        data.append("file", files[0])
+        data.append("upload_preset","luciya");
+        this.setState({
+            loading :true
+        });
+        // setLoading(true);
+        const res = await fetch(
+            "https://api.cloudinary.com/v1_1/dcza05ust/image/upload",
+            {
+                method: "POST",
+                body: data
+            }
+        )
+        const file = await res.json()
+        this.setState({
+            image: file.secure_url,
+            loading: false
+        })
     }
 
     render() {
@@ -45,6 +81,13 @@ class Upload extends Component {
             <Container>
                 <div>
                     <h2 id="upload">Upload</h2>
+                    <form enctype="multipart/form-data" >
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Example file input</label>
+                                <input type = "file"  name = "file"     onChange = {this.saveImage}/>
+                                {this.state.loading ? (<h3> loading... </h3>) :(<img src = {this.state.image} style = {{width:"300px"}}/>)}
+                        </div>
+                    </form>
                     <form className="create-form" >
                         <div className="form-group">
                             <label htmlFor="ca">Product name:</label>

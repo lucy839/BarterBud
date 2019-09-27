@@ -36,6 +36,7 @@ class MyUploads extends Component {
         let back = <button className="btn trade" type="submit" onClick={this.back}>back</button>;
         let list = this.props.myProducts.map(product => {
             return (<div>
+                <img src = {product.image} style = {{width:"300px"}}/>
                 <h1> product name: </h1>
                 <p>{product.productname}</p>
                 <h1>condition</h1>
