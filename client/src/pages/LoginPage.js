@@ -60,7 +60,7 @@ class LoginPage extends Component {
             case false:
                 modal = <Jumbotron>
                     <div>
-                        <h1 class="intro">Welcome to Barter Bud <i className="fas fa-sync-alt"></i><div id="#user"></div></h1>
+                        <h1 class="intro">Welcome to <strong id = "appName">Barter Bud</strong> <i className="fas fa-sync-alt"></i><div id="#user"></div></h1>
                         <br></br>
                         <button name="button" type="button" className="btn" value="signup" onClick={this.toggle}>Sign Up</button>
                         <button name="button" type="button" className="btn" value="signin" onClick={this.toggle}>Login</button>

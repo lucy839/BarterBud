@@ -1,6 +1,13 @@
+/* LoginPage */
 .intro {
-    margin-top:13%;
+    margin-top:2%;
     font-size: 40px;
+    font-family: 'Inconsolata', monospace;
+}
+
+#appName{
+    color: rgb(198, 23, 174);
+    font-size:45px;
 }
 .btn {
     height:50px;
@@ -10,6 +17,7 @@
     margin-top:5%;
     font-size:15px;
     border:solid 3px rgb(194, 184, 184);
+    font-family: 'Inconsolata', monospace;
 }
 button:hover {
     background: rgb(194, 184, 184);

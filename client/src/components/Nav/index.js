@@ -16,16 +16,16 @@ class Nav extends Component {
                         <ul className="navbar-nav ml-auto">
                             <ul className="nav nav-pills">
                                 <li className="nav-item">
-                                    <a href="/about">about</a>
+                                    <a href="/about">About</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/market">market</a>
+                                    <a href="/market">Market</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/upload">upload</a>
+                                    <a href="/upload">Upload</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/profile">profile</a>
+                                    <a href="/profile">Profile</a>
                                 </li>
                                 <li className="nav-item">
                                     <a onClick={this.props._logout}>Logout</a>
