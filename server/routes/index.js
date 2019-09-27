@@ -7,7 +7,8 @@ router.route("/user/:id")
 
 // switch user
 router.route("/user")
-.post(uploadController.switchUser);
+.post(uploadController.switchUser)
+.get(uploadController.check);
 
 // get product of user
 router.route("/upload/:id")

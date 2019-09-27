@@ -39,4 +39,8 @@ export default {
     console.log(users)
     return axios.post("/api/user",users)
   },
+  // check number of uploads
+  check:function(){
+    return axios.get("/api/user")
+  }
 };

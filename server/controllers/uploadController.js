@@ -2,6 +2,18 @@ const Upload = require('../db/models/upload')
 const User = require("../db/models/user")
 
 module.exports = {
+  check: function (req, res) {
+    console.log("here");
+    var moment = require('moment');
+    var older_than = moment().subtract(30, 'days').toDate();
+    Upload.find({ Timestamp: { $lte: older_than } }).remove().exec().then((RemoveStatus) => {
+      console.log("Documents Removed Successfully");
+    }).catch((err) => {
+      console.error('something error');
+      console.error(err);
+    })
+    Upload.count({}).then(count => res.json(count)).catch(err => res.status(422).json(err));
+  },
   // get this user's email
   findAll: function (req, res) {
     User
@@ -40,7 +52,7 @@ module.exports = {
     let filter2 = { _id: req.body[0] }
 
     Upload
-      .findOneAndUpdate(filter, { status: "traded"})
+      .findOneAndUpdate(filter, { status: "traded" })
       .then(dbModel => console.log(dbModel))
       .catch(err => res.status(422).json(err));
     Upload.findOneAndUpdate(filter2, { status: "traded" })
@@ -52,7 +64,7 @@ module.exports = {
   switchUser: function (req, res) {
     let user1 = { user: req.body[0] };
     let user2 = { user: req.body[1] };
-    Upload.findOneAndUpdate(user1, { user: req.body[1], requestFrom: ""  })
+    Upload.findOneAndUpdate(user1, { user: req.body[1], requestFrom: "" })
       .then(dbModel => console.log(dbModel))
       .catch(err => res.status(422).json(err));
     Upload.findOneAndUpdate(user2, { user: req.body[0], requestFrom: "" })

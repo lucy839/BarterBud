@@ -14,10 +14,28 @@ class Upload extends Component {
             requestFrom: "",
             image: "",
             loading:false,
+            form:false,
+            numProducts:0
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleChange = this.handleChange.bind(this)
         this.saveImage = this.saveImage.bind(this)
+    }
+    componentDidMount(){
+       this.checkProducts()
+    }
+    checkProducts(){
+        // let numProducts ;
+        API.check().then(res =>
+            this.setState({
+                numProducts : res.data
+            })
+                
+                
+        )
+      console.log(this.state.numProducts)
+            // console.log(typeof(res.data)));
+    
     }
 
     // set product informations as use enters
@@ -77,7 +95,9 @@ class Upload extends Component {
     }
 
     render() {
+        // console.log(this.state.numProducts)
         return (
+            this.state.numProduct<30 ? (
             <Container>
                 <div>
                     <h2 id="upload">Upload</h2>
@@ -138,6 +158,7 @@ class Upload extends Component {
                     </form>
                 </div>
             </Container>
+            ): (<Container><h4>Too many products on market already. Please try later. </h4></Container>)
         );
     }
 }
