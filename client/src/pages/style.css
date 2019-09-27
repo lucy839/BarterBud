@@ -27,10 +27,12 @@ button:hover {
 }
 #title{
     font-size:50px;
+    color: rgb(198, 23, 174);
 }
 #highlight {
     font-size:50px;
     text-align: center;
+    color: rgb(198, 23, 174);
 }
 #linkedin, #github{
     width:25px; 

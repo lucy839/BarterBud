@@ -1,0 +1,8 @@
+.products{
+    text-align:left;
+    border:  dotted 1px rgba(194, 184, 184, 0.589);
+    padding-bottom: 20px;
+}   
+#product{
+    color: rgb(198, 23, 174);
+}

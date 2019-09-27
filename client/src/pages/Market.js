@@ -20,7 +20,6 @@ class Market extends Component {
     // when the page is loaded, display all the items in the data
     componentDidMount() {
         this.loadItems();
-
     }
 
     // save all data in state

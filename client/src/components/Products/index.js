@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import "./style.css";
 
 class Products extends Component {
     constructor(props) {
@@ -17,14 +18,11 @@ class Products extends Component {
         let list = this.props.products.map(product => {
             if (!(product.user == this.props.user)) {
                 if (!(product.status == "traded")){
-                    return (<div>
+                    return (<div className ="col-md-4 products">
                         <img src = {product.image} style = {{width:"300px"}}/>
-                        <h1> product name: </h1>
-                        <p>{product.productname}</p>
-                        <h1>condition</h1>
-                        <p>{product.condition}</p>
-                        <h1>description</h1>
-                        <p>{product.description}</p>
+                        <p> <strong id = "product">product name: </strong>{product.productname} </p>
+                        <p> <strong id = "product">condition: </strong>{product.condition} </p>
+                        <p> <strong id = "product">description: </strong>{product.description} </p>
                         <button
                             className="btn trade"
                             name="request"
@@ -44,7 +42,7 @@ class Products extends Component {
                     <h5>No Products to Trade</h5>
                 </div>
             ) : (
-                <div>
+                <div className = "row">
                     {list}
                 </div>
             )

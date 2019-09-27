@@ -51,7 +51,7 @@ class App extends Component {
           // update the state
           this.setState({
             loggedIn: true,
-            user: response.data.user,
+            user: response.data.user
           });
         }
         // call success function to redirect to market page
@@ -90,7 +90,7 @@ class App extends Component {
     // if someone is loggedin, display navbar and go to main page
     if (this.state.loggedIn) {
       nav = <Nav _logout={this._logout} user={this.state.user}></Nav>
-      main = <Route path="/" exact render={(props) => <Market {...props} user={this.state.user} />}></Route>
+      main = <Route path="/" exact component={About}></Route>
     } else {
       // if no one is loggedin , display login page
       main = <Route path="/" exact render={(props) => <LoginPage {...props} _login={this._login} loggedIn={this.state.loggedIn} />}></Route>
