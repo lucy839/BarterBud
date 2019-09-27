@@ -1,0 +1,14 @@
+.back{
+    border:none;
+    padding:none;
+    width:50px;
+    margin-top:0;
+    margin-bottom:20px;
+}
+.back:hover{
+    background:none;
+}
+.fa-arrow-alt-circle-left{
+    color:rgb(198, 23, 174);
+    font-size:50px;
+}

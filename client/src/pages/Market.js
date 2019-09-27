@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import MyUploads from "../components/MyUploads/index";
+import MyProducts from "../components/MyProducts/index";
 import Container from "../components/Container/index";
 import Products from "../components/Products/index";
 
@@ -19,7 +19,7 @@ class Market extends Component {
 
     // when the page is loaded, display all the items in the data
     componentDidMount() {
-        this.loadItems();
+        this.loadItems();   
     }
 
     // save all data in state
@@ -56,7 +56,7 @@ class Market extends Component {
         if (this.state.tradeRequest) {
             return (  
                 <Container>
-                    <MyUploads myProducts={this.state.myProducts} request={this.state.request} closeRequest={this.closeRequest} />
+                    <MyProducts myProducts={this.state.myProducts} request={this.state.request} closeRequest={this.closeRequest} />
                 </Container>
             )
         } else {

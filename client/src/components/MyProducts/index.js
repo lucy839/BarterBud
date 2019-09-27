@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
-import API from '../../utils/API';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import API from "../../utils/API";
+import "./style.css";
 
-class MyUploads extends Component {
+class MyProducts extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -33,17 +34,14 @@ class MyUploads extends Component {
 
     render() {
         // format my products from props
-        let back = <button className="btn trade" type="submit" onClick={this.back}>back</button>;
+        let back = <button className="btn back" type="submit" onClick={this.back}><i className="fas fa-arrow-alt-circle-left"></i></button>;
         let list = this.props.myProducts.map(product => {
             if (!(product.status == "traded")) {
-                return (<div>
+                return (<div className="col-md-4 products" key={product._id}>
                     <img src={product.image} style={{ width: "300px" }} />
-                    <h1> product name: </h1>
-                    <p>{product.productname}</p>
-                    <h1>condition</h1>
-                    <p>{product.condition}</p>
-                    <h1>description</h1>
-                    <p>{product.description}</p>
+                    <p> <strong id="product">product name: </strong>{product.productname} </p>
+                    <p> <strong id="product">condition: </strong>{product.condition} </p>
+                    <p> <strong id="product">description: </strong>{product.description} </p>
                     <button
                         className="btn trade"
                         onClick={this.trade}
@@ -67,11 +65,13 @@ class MyUploads extends Component {
                 ) : (
                     <div>
                         {back}
-                        {list}
+                        <div className="row">
+                            {list}
+                        </div>
                     </div>
                 )
         }
     }
 }
 
-export default MyUploads
+export default MyProducts
