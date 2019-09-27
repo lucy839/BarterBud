@@ -43,14 +43,14 @@ class Signin extends Component {
         } else {
             return (
                 <div>
-                    <h4>Login</h4>
+                    <h3 id = "signin">Login</h3>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div>
                                 <label className="form-label" htmlFor="username">Username</label>
                             </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
+                            <div >
+                                <input className="form-control"
                                     type="text"
                                     id="username"
                                     name="username"
@@ -61,11 +61,11 @@ class Signin extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div>
                                 <label className="form-label" htmlFor="password">Password: </label>
                             </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
+                            <div>
+                                <input className="form-control"
                                     placeholder="password"
                                     type="password"
                                     name="password"
@@ -75,7 +75,6 @@ class Signin extends Component {
                             </div>
                         </div>
                         <div className="form-group ">
-                            <div className="col-7"></div>
                             <button
                                 className="btn login"
                                 onClick={this.handleSubmit}

@@ -68,14 +68,14 @@ class Signup extends Component {
         } else {
             return (
                 <div className="SignupForm">
-                    <h4>Sign up</h4>
+                    <h3 id ="signup">Sign up</h3>
                     <form className="form-horizontal">
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div>
                                 <label className="form-label" htmlFor="username">Username</label>
                             </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
+                            <div>
+                                <input className="form-control"
                                     type="text"
                                     id="username"
                                     name="username"
@@ -86,11 +86,11 @@ class Signup extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                            <div>
                                 <label className="form-label" htmlFor="password">Password: </label>
                             </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
+                            <div >
+                                <input className="form-control"
                                     placeholder="password"
                                     type="password"
                                     name="password"
@@ -100,11 +100,11 @@ class Signup extends Component {
                             </div>
                         </div>
                         <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
+                            <div>
+                                <label className="form-label" htmlFor="password">Confirm Password: </label>
                             </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
+                            <div>
+                                <input className="form-control"
                                     placeholder="password"
                                     type="password"
                                     name="confirmPassword"
@@ -130,7 +130,7 @@ class Signup extends Component {
                             </div>
                         </div>
                         <div className="form-group ">
-                            <button className="btn btn-primary " onClick={this.handleSubmit} type="submit">Sign up</button>
+                            <button className="btn signup" onClick={this.handleSubmit} type="submit">Sign up</button>
                         </div>
                     </form>
                 </div>
