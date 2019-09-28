@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Redirect } from "react-router-dom";
 import "./style.css";
-import About from "./pages/About";
+import About from "../../pages/About";
 
 class Nav extends Component {
     constructor(props) {
@@ -17,6 +17,7 @@ class Nav extends Component {
     }
     // Navigation bar
     render() {
+        let test ;
         switch (this.state.redirectTo) {
             case "about":
               test = <About />
@@ -32,6 +33,7 @@ class Nav extends Component {
       
             return (
                 <div>
+<div>
                     <nav className="navbar navbar-expand-lg fixed-top">
                         <div className="navbar-brand">Barter Bud <i className="fas fa-sync-alt"></i></div>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,6 +63,9 @@ class Nav extends Component {
                         </div>
                     </nav>
                 </div>
+                {test}
+                </div>
+                
             );
         }
     
