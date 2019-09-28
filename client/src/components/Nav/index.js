@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import "./style.css";
+import About from "./pages/About";
 
 class Nav extends Component {
     constructor(props) {
@@ -16,9 +17,19 @@ class Nav extends Component {
     }
     // Navigation bar
     render() {
-        if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
-        } else {
+        switch (this.state.redirectTo) {
+            case "about":
+              test = <About />
+              break
+            // case "game":
+            //   test = <Game user={this.props.user} score={this}/>
+            //   break
+            // case "rank":
+            //   test = <Rank />
+            //   break
+            default:
+          } 
+      
             return (
                 <div>
                     <nav className="navbar navbar-expand-lg fixed-top">
@@ -31,7 +42,7 @@ class Nav extends Component {
                             <ul className="navbar-nav ml-auto">
                                 <ul className="nav nav-pills">
                                     <li className="nav-item">
-                                        <button value="/about" onClick={this.setRedirect}>About</button>
+                                        <button value="about" onClick={this.setRedirect}>About</button>
                                     </li>
                                     <li className="nav-item">
                                         <a href="/market">Market</a>
@@ -52,7 +63,7 @@ class Nav extends Component {
                 </div>
             );
         }
-    }
+    
 }
 
 export default Nav;
