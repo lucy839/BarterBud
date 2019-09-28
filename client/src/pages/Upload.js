@@ -97,15 +97,15 @@ class Upload extends Component {
     render() {
         // console.log(this.state.numProducts)
         return (
-            this.state.numProduct<30 ? (
+            this.state.numProducts<30 ? (
             <Container>
-                <div>
+                <div id = "uploadForm">
                     <h2 id="upload">Upload</h2>
                     <form enctype="multipart/form-data" >
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Example file input</label>
                                 <input type = "file"  name = "file"     onChange = {this.saveImage}/>
-                                {this.state.loading ? (<h3> loading... </h3>) :(<img src = {this.state.image} style = {{width:"300px"}} alt = "img"/>)}
+                                {this.state.loading ? (<h3> loading... </h3>) :( <img src = {this.state.image} style = {{width:"300px"}} alt = "no selected image"/>)}
                         </div>
                     </form>
                     <form className="create-form" >
@@ -152,7 +152,7 @@ class Upload extends Component {
                             </div>
                         </div>
                         <button
-                            id="submit"
+                            class = "btn submit"
                             type="submit"
                             onClick={this.handleSubmit}>submit</button>
                     </form>

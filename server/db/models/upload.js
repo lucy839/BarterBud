@@ -4,6 +4,10 @@ mongoose.promise = Promise
 
 // Define uploadSchema
 const uploadSchema = new Schema({
+    Timestamp: {
+        type: Date,
+        default: Date.now
+    },
     user: String,
     productname: String,
     condition: String,

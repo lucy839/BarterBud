@@ -62,7 +62,7 @@ class MyProducts extends Component {
                 (
                     <div>
                         {back}
-                        <h5>No Products to Trade</h5>
+                        <h5 id = "warning">No Products to Trade</h5>
                     </div>
                 ) : (
                     <div>

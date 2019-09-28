@@ -56,7 +56,7 @@ class Market extends Component {
         if (this.state.tradeRequest) {
             return (  
                 <Container>
-                    <MyProducts myProducts={this.state.myProducts} request={this.state.request} closeRequest={this.closeRequest} />
+                    <MyProducts  myProducts={this.state.myProducts} request={this.state.request} closeRequest={this.closeRequest} />
                 </Container>
             )
         } else {

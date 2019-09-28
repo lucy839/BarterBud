@@ -50,11 +50,17 @@ class ProfileList extends Component {
             return(eachProduct);
         });
 
-        return (
+        return (this.props.products.length === 0) ?
+        (
+            <div>
+                <h5 id = "warning">No Products Uploaded By You</h5>
+            </div>
+        ) : (
             <div className = "row">
                 {list}
             </div>
         )
+        
     }
 }
 export default ProfileList

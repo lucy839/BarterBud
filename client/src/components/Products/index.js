@@ -41,7 +41,7 @@ class Products extends Component {
         return (this.props.products.length === 0) ?
             (
                 <div>
-                    <h5>No Products to Trade</h5>
+                    <h5 id = "warning" >No Products to Trade</h5>
                 </div>
             ) : (
                 <div className = "row">

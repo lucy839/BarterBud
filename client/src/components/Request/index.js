@@ -43,7 +43,7 @@ class Request extends Component {
         let list = this.props.products.map(product => {
             return (
                 <div>
-                    <img src={product.image} style={{ width: "300px" }} alt ="img" />
+                    <img src={product.image} style={{ width: "300px" }} alt ="img   " />
                     <p> <strong id="product">PRODUCT NAME: </strong>{product.productname} </p>
                     <p> <strong id="product">CONDITION: </strong>{product.condition} </p>
                     <p> <strong id="product"> DESCRIPTION: </strong>{product.description} </p>
