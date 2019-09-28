@@ -36,9 +36,10 @@ class MyProducts extends Component {
         // format my products from props
         let back = <button className="btn back" type="submit" onClick={this.back}><i className="fas fa-arrow-alt-circle-left"></i></button>;
         let list = this.props.myProducts.map(product => {
-            if (!(product.status == "traded")) {
-                return (<div className="col-md-4 products" key={product._id}>
-                    <img src={product.image} style={{ width: "300px" }} />
+            let eachProduct;
+            if (!(product.status === "traded")) {
+                eachProduct =<div className="col-md-4 products" key={product._id}>
+                    <img src={product.image} style={{ width: "300px" }}alt ="img" />
                     <p> <strong id="product">PRODUCT NAME: </strong>{product.productname} </p>
                     <p> <strong id="product">CONDITION: </strong>{product.condition} </p>
                     <p> <strong id="product">DESCRIPTION: </strong>{product.description} </p>
@@ -48,8 +49,9 @@ class MyProducts extends Component {
                         value={product._id}
                         type="submit">trade</button>
                 </div>
-                );
+                
             }
+            return(eachProduct)
         });
 
         if (this.state.redirectTo) {

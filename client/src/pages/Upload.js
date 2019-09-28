@@ -105,7 +105,7 @@ class Upload extends Component {
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Example file input</label>
                                 <input type = "file"  name = "file"     onChange = {this.saveImage}/>
-                                {this.state.loading ? (<h3> loading... </h3>) :(<img src = {this.state.image} style = {{width:"300px"}}/>)}
+                                {this.state.loading ? (<h3> loading... </h3>) :(<img src = {this.state.image} style = {{width:"300px"}} alt = "img"/>)}
                         </div>
                     </form>
                     <form className="create-form" >

@@ -28,7 +28,7 @@ class Nav extends Component {
                                     <a href="/profile">Profile</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a onClick={this.props._logout}>Logout</a>
+                                    <a href = "/" onClick={this.props._logout}>Logout</a>
                                 </li>
                             </ul>
                         </ul>

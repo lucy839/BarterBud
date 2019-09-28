@@ -27,7 +27,7 @@ class Signup extends Component {
         event.preventDefault()
         // if password is matching and email is valid format process signup
         var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (this.state.username==""||this.state.password==""||this.state.confirmPassword==""||this.state.email==""){
+        if (this.state.username===""||this.state.password===""||this.state.confirmPassword===""||this.state.email===""){
             alert("Please complete the form");
         }else {
             if (this.state.confirmPassword !== this.state.password){
@@ -122,7 +122,6 @@ class Signup extends Component {
                                     className="form-control"
                                     id="contact"
                                     placeholder="name@example.com"
-                                    type="email"
                                     name="email"
                                     value={this.state.email}
                                     onChange={this.handleChange}

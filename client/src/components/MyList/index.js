@@ -18,14 +18,14 @@ class ProfileList extends Component {
         // go through products received from props
         let list = this.props.products.map(product => {
             // if status is process, button will be given
-            if (product.status == "process") {
+            if (product.status === "process") {
                 button = <button
                     className="btn requested"
                     name="requested"
                     value={[product.requestFrom, product._id]}
                     onClick={this.handleSubmit}
                     type="submit">Trade Requested</button>
-            } else if (product.status == "traded") {
+            } else if (product.status === "traded") {
                 button = <button
                 className="btn new"
                 type="submit">NEW ITEM! (traded)</button>
@@ -36,16 +36,18 @@ class ProfileList extends Component {
             }
 
             // only display my products
-            if (product.user == this.props.user) {
-                return (<div className="col-md-4 products" key={product._id}>
-                    <img src={product.image} style={{ width: "300px" }} />
+            let eachProduct;
+            if (product.user === this.props.user) {
+                eachProduct =<div className="col-md-4 products" key={product._id}>
+                    <img src={product.image} style={{ width: "300px" }} alt= "img" />
                     <p> <strong id="product">PRODUCT NAME: </strong>{product.productname} </p>
                     <p> <strong id="product">CONDITION: </strong>{product.condition} </p>
                     <p> <strong id="product"> DESCRIPTION: </strong>{product.description} </p>
                     {button}
                 </div>
-                );
+           
             }
+            return(eachProduct);
         });
 
         return (

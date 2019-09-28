@@ -6,7 +6,7 @@ function Jumbotron({ children }) {
     <div
       style={{
         clear: "both", textAlign: "center", overflow: "scroll", background: "white",
-        height: "300px", width: "40%", "margin-top": "10%", "margin-left": "30%"
+        height: "300px", width: "40%", "marginTop": "10%", "marginLeft": "30%"
       }}
       className="jumbotron"
     >
