@@ -3,13 +3,15 @@
   width:40%;
   margin-left: 30%;
   margin-top:5%;
-  /* height:585px; */
   overflow:scroll;
   height:auto;
 }
 .modal-dialog {
   margin:0;
   padding:1%;
-  /* padding:0; */
   height:auto;
+}
+
+@media only screen and (max-width: 1024px) {
+
 }
