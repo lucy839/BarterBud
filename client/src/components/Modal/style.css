@@ -12,6 +12,11 @@
   height:auto;
 }
 
+/* ipad pro */
 @media only screen and (max-width: 1024px) {
-
+  .modal{
+    margin-top:10%;
+    width:60%;
+    margin-left: 20%;
+  }
 }

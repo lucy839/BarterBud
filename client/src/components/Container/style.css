@@ -1,30 +1,32 @@
-/* // style={{
-    //   clear: "both", textAlign: "center", overflow: "scroll", background: "white",
-    //   height: "550px", width: "80%", "marginTop": "100px", "marginLeft": "10%",
-    //   padding: "5%"
-    // }} */
-    .container{
-        background:white;
-        clear:both;
-        text-align:center;
-        overflow:scroll;
-        height:550px;
-        width:80%;
-        margin-top:100px;
-        margin-left:10%;
-        padding:5%;
-    }
+.container{
+    background:white;
+    clear:both;
+    text-align:center;
+    overflow:scroll;
+    height:550px;
+    width:80%;
+    margin-top:100px;
+    margin-left:150px;
+    padding:5%;
+}
+
+/* ipad pro */ 
 @media only screen and (max-width: 1024px) {
     .container{
-      margin-top:15%;
-      /* margin-left:12.5%; */
+      margin-left:100px;
       height:1000px; 
     }
 }
+/* ipad */
 @media only screen and (max-width: 768px) {
     .container{
-      margin-top:15%;
-      /* margin-left:12.5%; */
-      height:1000px; 
+        margin-left:125px;
+    }
+}
+
+/* ipad */
+@media only screen and (max-width: 414px) {
+    .container{
+      height:1400px; 
     }
 }
